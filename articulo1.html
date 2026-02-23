@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Por qué estás siempre cansado aunque duermas 8 horas | Modo Descanso</title>
+<meta name="description" content="Dormir 8 horas y seguir cansado es más común de lo que crees. Te explicamos por qué pasa y qué puedes hacer esta noche para solucionarlo.">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --night: #0d1117;
+    --deep: #161b27;
+    --card: #1c2333;
+    --border: #2a3448;
+    --moon: #c8b8f0;
+    --star: #f0e6c8;
+    --soft: #8b9cb8;
+    --text: #dde3ee;
+    --accent: #7c6bb0;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: var(--night);
+    color: var(--text);
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 300;
+    line-height: 1.8;
+  }
+
+  nav {
+    background: rgba(13,17,23,0.95);
+    border-bottom: 1px solid var(--border);
+    padding: 1rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }
+
+  .logo {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.3rem;
+    color: var(--moon);
+    text-decoration: none;
+  }
+
+  .logo span { color: var(--star); font-style: italic; }
+
+  .article-wrap {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 4rem 2rem;
+  }
+
+  .article-tag {
+    font-size: 0.75rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 1rem;
+  }
+
+  h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2rem, 5vw, 3rem);
+    color: var(--star);
+    line-height: 1.2;
+    margin-bottom: 1.5rem;
+  }
+
+  .article-meta {
+    color: var(--soft);
+    font-size: 0.85rem;
+    margin-bottom: 2.5rem;
+    padding-bottom: 2rem;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .intro {
+    font-size: 1.15rem;
+    color: var(--moon);
+    font-style: italic;
+    margin-bottom: 2.5rem;
+    padding-left: 1.5rem;
+    border-left: 3px solid var(--accent);
+  }
+
+  h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.6rem;
+    color: var(--star);
+    margin: 2.5rem 0 1rem;
+  }
+
+  h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.2rem;
+    color: var(--moon);
+    margin: 2rem 0 0.75rem;
+  }
+
+  p { margin-bottom: 1.25rem; color: var(--text); }
+
+  .highlight-box {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-left: 4px solid var(--accent);
+    border-radius: 8px;
+    padding: 1.5rem;
+    margin: 2rem 0;
+  }
+
+  .highlight-box p { margin: 0; color: var(--moon); font-style: italic; }
+
+  /* PRODUCTO AFILIADO */
+  .affiliate-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 1.75rem;
+    margin: 2rem 0;
+    display: flex;
+    gap: 1.5rem;
+    align-items: flex-start;
+    transition: border-color 0.3s;
+  }
+
+  .affiliate-card:hover { border-color: var(--accent); }
+
+  .affiliate-emoji { font-size: 2.5rem; flex-shrink: 0; }
+
+  .affiliate-info h4 {
+    font-family: 'Playfair Display', serif;
+    color: var(--star);
+    font-size: 1.1rem;
+    margin-bottom: 0.4rem;
+  }
+
+  .affiliate-info p {
+    font-size: 0.9rem;
+    color: var(--soft);
+    margin-bottom: 1rem;
+  }
+
+  .affiliate-badge {
+    display: inline-block;
+    background: rgba(124,107,176,0.15);
+    border: 1px solid var(--accent);
+    color: var(--moon);
+    font-size: 0.72rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 0.2rem 0.7rem;
+    border-radius: 100px;
+    margin-bottom: 0.75rem;
+  }
+
+  .affiliate-btn {
+    display: inline-block;
+    background: linear-gradient(135deg, var(--accent), #9d8fd4);
+    color: white;
+    text-decoration: none;
+    padding: 0.6rem 1.5rem;
+    border-radius: 100px;
+    font-size: 0.85rem;
+    font-weight: 500;
+    transition: opacity 0.3s;
+  }
+
+  .affiliate-btn:hover { opacity: 0.85; }
+
+  .fases-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 1rem;
+    margin: 1.5rem 0;
+  }
+
+  .fase {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 1.25rem;
+    text-align: center;
+  }
+
+  .fase-icon { font-size: 1.8rem; margin-bottom: 0.5rem; display: block; }
+  .fase h4 { color: var(--star); font-size: 0.95rem; margin-bottom: 0.3rem; }
+  .fase p { font-size: 0.8rem; color: var(--soft); margin: 0; }
+
+  .conclusion {
+    background: linear-gradient(135deg, var(--deep), var(--card));
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 2rem;
+    margin-top: 3rem;
+    text-align: center;
+  }
+
+  .conclusion h2 { margin-top: 0; }
+
+  footer {
+    border-top: 1px solid var(--border);
+    padding: 2rem;
+    text-align: center;
+    color: var(--soft);
+    font-size: 0.8rem;
+    margin-top: 4rem;
+  }
+
+  .back-link {
+    display: inline-block;
+    color: var(--moon);
+    text-decoration: none;
+    font-size: 0.85rem;
+    margin-bottom: 3rem;
+    border-bottom: 1px solid transparent;
+    transition: border-color 0.3s;
+  }
+
+  .back-link:hover { border-color: var(--moon); }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="logo">Modo<span>Descanso</span></a>
+</nav>
+
+<div class="article-wrap">
+  <a href="index.html" class="back-link">← Volver al inicio</a>
+
+  <p class="article-tag">✦ Sueño · 8 min de lectura</p>
+  <h1>Por qué estás siempre cansado aunque duermas 8 horas</h1>
+  <p class="article-meta">Por Modo Descanso · Febrero 2026</p>
+
+  <p class="intro">El problema no es cuántas horas duermes. Es lo que pasa dentro de esas horas. Y la buena noticia es que tiene solución.</p>
+
+  <p>Te vas a la cama a una hora decente, te despiertas después de 8 horas y aun así sientes que te ha pasado un camión por encima. Si esto te suena familiar, no estás solo. Uno de cada tres españoles reporta despertarse cansado de forma habitual, incluso durmiendo lo que se supone que es suficiente.</p>
+
+  <p>La razón tiene un nombre: <strong style="color: var(--moon)">mala calidad del sueño</strong>. Y es muy distinto a dormir pocas horas.</p>
+
+  <h2>Las fases del sueño que nadie te explica</h2>
+
+  <p>Mientras duermes, tu cerebro pasa por ciclos de aproximadamente 90 minutos. Cada ciclo tiene fases distintas, y si algo las interrumpe, el descanso no es real aunque hayas estado 8 horas en la cama.</p>
+
+  <div class="fases-grid">
+    <div class="fase">
+      <span class="fase-icon">😴</span>
+      <h4>Sueño ligero</h4>
+      <p>Transición al descanso. Fácil de interrumpir.</p>
+    </div>
+    <div class="fase">
+      <span class="fase-icon">🌊</span>
+      <h4>Sueño profundo</h4>
+      <p>Aquí el cuerpo se repara. La más importante.</p>
+    </div>
+    <div class="fase">
+      <span class="fase-icon">🧠</span>
+      <h4>REM</h4>
+      <p>La mente procesa emociones y consolida memoria.</p>
+    </div>
+  </div>
+
+  <p>El problema es que la mayoría de cosas que hacemos antes de dormir —mirar el móvil, cenar tarde, tomar alcohol o cafeína— reducen drásticamente el tiempo en sueño profundo y REM. Resultado: 8 horas de sueño ligero que no reparan nada.</p>
+
+  <h2>Las 5 razones más comunes</h2>
+
+  <h3>1. El móvil antes de dormir</h3>
+  <p>La luz azul de las pantallas inhibe la melatonina, la hormona que le dice a tu cuerpo que es de noche. Con 30 minutos de pantalla antes de dormir ya estás retrasando tu ciclo de sueño entre 1 y 3 horas. Tu cuerpo se duerme tarde aunque tú cierres los ojos a las 23:00.</p>
+
+  <div class="highlight-box">
+    <p>"No es que no puedas dormir. Es que tu cerebro todavía cree que es mediodía."</p>
+  </div>
+
+  <h3>2. La temperatura de tu habitación</h3>
+  <p>Tu cuerpo necesita bajar entre 1 y 2 grados su temperatura central para entrar en sueño profundo. Si tu habitación está a más de 20°C, ese proceso se bloquea. La temperatura ideal para dormir está entre 16 y 19°C.</p>
+
+  <h3>3. El estrés acumulado y el cortisol</h3>
+  <p>El cortisol es la hormona del estrés. Debería estar bajo por la noche, pero si llevas semanas o meses estresado, tu cuerpo lo produce de forma crónica. Esto te mantiene en un estado de alerta que impide llegar al sueño profundo aunque estés agotado.</p>
+
+  <!-- AFILIADO 1: Ashwagandha -->
+  <div class="affiliate-card">
+    <div class="affiliate-emoji">🌿</div>
+    <div class="affiliate-info">
+      <span class="affiliate-badge">✦ Lo que usamos</span>
+      <h4>Ashwagandha KSM-66 — Para bajar el cortisol</h4>
+      <p>El extracto de ashwagandha con más estudios clínicos detrás. Reduce el cortisol y mejora la calidad del sueño en personas con estrés crónico. Notarás diferencia en 2-3 semanas.</p>
+      <a href="https://www.amazon.es/s?k=ashwagandha+ksm+66&tag=mododescanso-21" class="affiliate-btn" target="_blank">Ver en Amazon →</a>
+    </div>
+  </div>
+
+  <h3>4. Déficit de magnesio</h3>
+  <p>El magnesio es el mineral más importante para el sistema nervioso y más del 70% de la población tiene déficit sin saberlo. Sin suficiente magnesio, los músculos no se relajan bien, el cerebro no desacelera y el sueño profundo se reduce considerablemente.</p>
+
+  <!-- AFILIADO 2: Magnesio -->
+  <div class="affiliate-card">
+    <div class="affiliate-emoji">💊</div>
+    <div class="affiliate-info">
+      <span class="affiliate-badge">✦ Lo que usamos</span>
+      <h4>Magnesio Bisglicinato — La forma más absorbible</h4>
+      <p>No todos los magnesios son iguales. El bisglicinato es el que mejor absorbe el cuerpo y el que menos efectos secundarios digestivos tiene. Tómalo 30 minutos antes de dormir.</p>
+      <a href="https://www.amazon.es/s?k=magnesio+bisglicinato&tag=mododescanso-21" class="affiliate-btn" target="_blank">Ver en Amazon →</a>
+    </div>
+  </div>
+
+  <h3>5. La luz al despertar</h3>
+  <p>Tu ritmo circadiano se regula en gran parte por la luz de la mañana. Si te levantas y vas directamente al baño o a mirar el móvil sin exposición a luz natural, tu reloj interno nunca termina de sincronizarse. Eso hace que por la noche tampoco tengas sueño a la hora correcta.</p>
+
+  <h2>Qué puedes hacer esta noche</h2>
+
+  <p>No hace falta cambiar todo a la vez. Con estos tres cambios ya notarás diferencia esta semana:</p>
+
+  <p><strong style="color: var(--moon)">1. Sin pantallas 45 minutos antes de dormir.</strong> Sí, los 45 minutos. No 10. Pon el móvil en otra habitación si hace falta.</p>
+
+  <p><strong style="color: var(--moon)">2. Baja la temperatura de tu habitación.</strong> Abre la ventana un rato antes de acostarte o baja el termostato a 18°C.</p>
+
+  <p><strong style="color: var(--moon)">3. Oscuridad total.</strong> Cualquier fuente de luz, por pequeña que sea, afecta la producción de melatonina. Si no puedes oscurecer bien tu habitación, un buen antifaz es la solución más rápida y barata.</p>
+
+  <!-- AFILIADO 3: Antifaz -->
+  <div class="affiliate-card">
+    <div class="affiliate-emoji">😷</div>
+    <div class="affiliate-info">
+      <span class="affiliate-badge">✦ Lo que usamos</span>
+      <h4>Antifaz 3D Contorneado — Oscuridad total sin presión</h4>
+      <p>La mayoría de antifaces presionan los ojos y te despiertan. El diseño 3D contorneado crea una cámara de oscuridad sin contacto directo. Es el cambio más barato con más impacto inmediato.</p>
+      <a href="https://www.amazon.es/s?k=antifaz+3d+contorneado+dormir&tag=mododescanso-21" class="affiliate-btn" target="_blank">Ver en Amazon →</a>
+    </div>
+  </div>
+
+  <div class="conclusion">
+    <h2>El resumen</h2>
+    <p>Dormir 8 horas no garantiza descanso. Lo que importa es la calidad de esas horas. Temperatura, oscuridad, cortisol bajo y suficiente magnesio son los cuatro pilares. Empieza por uno esta noche y ve añadiendo el resto.</p>
+    <p style="margin-top:1rem; color: var(--soft); font-size:0.9rem">¿Te ha ayudado este artículo? Suscríbete a nuestra newsletter para recibir un hábito de descanso cada semana.</p>
+  </div>
+
+</div>
+
+<footer>
+  <p>© 2026 ModoDescanso · Algunos enlaces son de afiliado Amazon (mododescanso-21). Esto nos ayuda a mantener el contenido gratuito para ti.</p>
+</footer>
+
+</body>
+</html>
