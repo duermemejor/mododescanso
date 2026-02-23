@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>La rutina de 10 minutos que calma la ansiedad antes de dormir | Modo Descanso</title>
+<meta name="description" content="Sin meditación complicada ni apps de pago. Tres pasos simples para calmar la ansiedad antes de dormir y descansar de verdad.">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --night: #0d1117;
+    --deep: #161b27;
+    --card: #1c2333;
+    --border: #2a3448;
+    --moon: #c8b8f0;
+    --star: #f0e6c8;
+    --soft: #8b9cb8;
+    --text: #dde3ee;
+    --accent: #7c6bb0;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: var(--night);
+    color: var(--text);
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 300;
+    line-height: 1.8;
+  }
+
+  nav {
+    background: rgba(13,17,23,0.95);
+    border-bottom: 1px solid var(--border);
+    padding: 1rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }
+
+  .logo {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.3rem;
+    color: var(--moon);
+    text-decoration: none;
+  }
+
+  .logo span { color: var(--star); font-style: italic; }
+
+  .article-wrap {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 4rem 2rem;
+  }
+
+  .article-tag {
+    font-size: 0.75rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 1rem;
+  }
+
+  h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2rem, 5vw, 3rem);
+    color: var(--star);
+    line-height: 1.2;
+    margin-bottom: 1.5rem;
+  }
+
+  .article-meta {
+    color: var(--soft);
+    font-size: 0.85rem;
+    margin-bottom: 2.5rem;
+    padding-bottom: 2rem;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .intro {
+    font-size: 1.15rem;
+    color: var(--moon);
+    font-style: italic;
+    margin-bottom: 2.5rem;
+    padding-left: 1.5rem;
+    border-left: 3px solid var(--accent);
+  }
+
+  h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.6rem;
+    color: var(--star);
+    margin: 2.5rem 0 1rem;
+  }
+
+  h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.2rem;
+    color: var(--moon);
+    margin: 2rem 0 0.75rem;
+  }
+
+  p { margin-bottom: 1.25rem; color: var(--text); }
+
+  .highlight-box {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-left: 4px solid var(--accent);
+    border-radius: 8px;
+    padding: 1.5rem;
+    margin: 2rem 0;
+  }
+
+  .highlight-box p { margin: 0; color: var(--moon); font-style: italic; }
+
+  .steps-grid {
+    display: grid;
+    gap: 1rem;
+    margin: 1.5rem 0;
+  }
+
+  .step {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 1.5rem;
+    display: flex;
+    gap: 1.25rem;
+    align-items: flex-start;
+  }
+
+  .step-num {
+    background: var(--accent);
+    color: white;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.85rem;
+    font-weight: 500;
+    flex-shrink: 0;
+  }
+
+  .step h4 {
+    font-family: 'Playfair Display', serif;
+    color: var(--star);
+    margin-bottom: 0.4rem;
+    font-size: 1rem;
+  }
+
+  .step p { font-size: 0.9rem; color: var(--soft); margin: 0; }
+
+  .affiliate-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 1.75rem;
+    margin: 2rem 0;
+    display: flex;
+    gap: 1.5rem;
+    align-items: flex-start;
+    transition: border-color 0.3s;
+  }
+
+  .affiliate-card:hover { border-color: var(--accent); }
+  .affiliate-emoji { font-size: 2.5rem; flex-shrink: 0; }
+
+  .affiliate-info h4 {
+    font-family: 'Playfair Display', serif;
+    color: var(--star);
+    font-size: 1.1rem;
+    margin-bottom: 0.4rem;
+  }
+
+  .affiliate-info p {
+    font-size: 0.9rem;
+    color: var(--soft);
+    margin-bottom: 1rem;
+  }
+
+  .affiliate-badge {
+    display: inline-block;
+    background: rgba(124,107,176,0.15);
+    border: 1px solid var(--accent);
+    color: var(--moon);
+    font-size: 0.72rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 0.2rem 0.7rem;
+    border-radius: 100px;
+    margin-bottom: 0.75rem;
+  }
+
+  .affiliate-btn {
+    display: inline-block;
+    background: linear-gradient(135deg, var(--accent), #9d8fd4);
+    color: white;
+    text-decoration: none;
+    padding: 0.6rem 1.5rem;
+    border-radius: 100px;
+    font-size: 0.85rem;
+    font-weight: 500;
+    transition: opacity 0.3s;
+  }
+
+  .affiliate-btn:hover { opacity: 0.85; }
+
+  .conclusion {
+    background: linear-gradient(135deg, var(--deep), var(--card));
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 2rem;
+    margin-top: 3rem;
+    text-align: center;
+  }
+
+  .conclusion h2 { margin-top: 0; }
+
+  footer {
+    border-top: 1px solid var(--border);
+    padding: 2rem;
+    text-align: center;
+    color: var(--soft);
+    font-size: 0.8rem;
+    margin-top: 4rem;
+  }
+
+  .back-link {
+    display: inline-block;
+    color: var(--moon);
+    text-decoration: none;
+    font-size: 0.85rem;
+    margin-bottom: 3rem;
+    border-bottom: 1px solid transparent;
+    transition: border-color 0.3s;
+  }
+
+  .back-link:hover { border-color: var(--moon); }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="logo">Modo<span>Descanso</span></a>
+</nav>
+
+<div class="article-wrap">
+  <a href="index.html" class="back-link">← Volver al inicio</a>
+
+  <p class="article-tag">✦ Ansiedad · 7 min de lectura</p>
+  <h1>La rutina de 10 minutos que calma la ansiedad antes de dormir</h1>
+  <p class="article-meta">Por Modo Descanso · Febrero 2026</p>
+
+  <p class="intro">No necesitas meditar durante una hora ni pagar una app de 15€ al mes. Solo tres pasos simples que le dicen a tu sistema nervioso que puede soltar la guardia.</p>
+
+  <p>Te metes en la cama y tu cabeza empieza sola. Los pendientes del trabajo, esa conversación que salió mal, lo que tienes que hacer mañana. La ansiedad nocturna es uno de los mayores ladrones de sueño que existen, y afecta a muchísima más gente de la que crees.</p>
+
+  <p>El problema es que cuando estás en ese estado, tu cuerpo cree literalmente que hay un peligro. El sistema nervioso simpático —el del modo alerta— está activado, y mientras lo esté, conciliar el sueño profundo es casi imposible.</p>
+
+  <p>La buena noticia: hay formas muy concretas de apagarlo. Y no requieren ni meditación ni apps caras.</p>
+
+  <div class="highlight-box">
+    <p>"La ansiedad nocturna no es un defecto tuyo. Es tu sistema nervioso haciendo su trabajo en el momento equivocado."</p>
+  </div>
+
+  <h2>Por qué la ansiedad empeora por la noche</h2>
+
+  <p>Durante el día tienes distracciones. El trabajo, las conversaciones, el móvil. Tu cerebro está ocupado y los pensamientos ansiosos no encuentran espacio para expandirse. Pero cuando te acuestas y todo se apaga, de repente tienes toda la atención del mundo disponible para ellos.</p>
+
+  <p>Además, el cortisol —la hormona del estrés— tiene un pico natural al final del día si llevas semanas con estrés acumulado. Justo cuando más necesitas relajarte, tu cuerpo está químicamente en modo alerta.</p>
+
+  <h2>La rutina de 10 minutos</h2>
+
+  <p>Estos tres pasos activan el sistema nervioso parasimpático —el del modo calma— de forma fisiológica. No es magia, es biología.</p>
+
+  <div class="steps-grid">
+    <div class="step">
+      <div class="step-num">1</div>
+      <div>
+        <h4>Respiración 4-7-8 — 3 minutos</h4>
+        <p>Inhala por la nariz 4 segundos, aguanta 7, exhala por la boca 8. Repite 6 veces. Esta técnica activa el nervio vago y baja la frecuencia cardíaca en minutos. Es la herramienta más potente y más ignorada para la ansiedad nocturna.</p>
+      </div>
+    </div>
+
+    <div class="step">
+      <div class="step-num">2</div>
+      <div>
+        <h4>Vaciado mental — 4 minutos</h4>
+        <p>Coge papel y bolígrafo y escribe todo lo que tienes en la cabeza sin filtro. Pendientes, preocupaciones, lo que sea. Al sacarlo fuera de tu mente y ponerlo en papel, tu cerebro deja de mantenerlo activo en memoria. Es como cerrar pestañas del navegador.</p>
+      </div>
+    </div>
+
+    <div class="step">
+      <div class="step-num">3</div>
+      <div>
+        <h4>Relajación muscular progresiva — 3 minutos</h4>
+        <p>Tumbado en la cama, tensa y suelta cada grupo muscular de pies a cabeza durante 5 segundos. Pies, piernas, abdomen, brazos, cara. La tensión física y la ansiedad mental están directamente conectadas. Cuando relajas el cuerpo, la mente lo sigue.</p>
+      </div>
+    </div>
+  </div>
+
+  <h2>Potencia la rutina con estos aliados</h2>
+
+  <p>La rutina sola ya funciona. Pero si combinas estos pasos con los suplementos adecuados, el efecto se multiplica considerablemente.</p>
+
+  <!-- AFILIADO 1: Magnesio -->
+  <div class="affiliate-card">
+    <div class="affiliate-emoji">💊</div>
+    <div class="affiliate-info">
+      <span class="affiliate-badge">✦ Lo que usamos</span>
+      <h4>Magnesio Bisglicinato — El relajante natural</h4>
+      <p>El magnesio regula directamente el sistema nervioso. Tómalo 30 minutos antes de empezar la rutina y notarás cómo la respiración y la relajación muscular son mucho más efectivas.</p>
+      <a href="https://www.amazon.es/s?k=magnesio+bisglicinato&tag=mododescanso-21" class="affiliate-btn" target="_blank">Ver en Amazon →</a>
+    </div>
+  </div>
+
+  <!-- AFILIADO 2: Ashwagandha -->
+  <div class="affiliate-card">
+    <div class="affiliate-emoji">🌿</div>
+    <div class="affiliate-info">
+      <span class="affiliate-badge">✦ Lo que usamos</span>
+      <h4>Ashwagandha KSM-66 — Para el estrés crónico</h4>
+      <p>Si tu ansiedad nocturna es constante y no mejora solo con hábitos, es probable que tengas el cortisol elevado de forma crónica. La ashwagandha KSM-66 es el suplemento con más evidencia para reducirlo a largo plazo.</p>
+      <a href="https://www.amazon.es/s?k=ashwagandha+ksm+66&tag=mododescanso-21" class="affiliate-btn" target="_blank">Ver en Amazon →</a>
+    </div>
+  </div>
+
+  <h2>El entorno también importa</h2>
+
+  <p>Hacer esta rutina con la luz del techo encendida y el móvil al lado es sabotearte a ti mismo. El entorno tiene que acompañar al proceso.</p>
+
+  <p><strong style="color: var(--moon)">Luz tenue o cero luz.</strong> Antes de empezar la rutina apaga las luces o usa solo una lámpara de luz muy cálida. La oscuridad le dice a tu cerebro que es de noche.</p>
+
+  <p><strong style="color: var(--moon)">Sin pantallas.</strong> El móvil fuera de la habitación o boca abajo. Las notificaciones, aunque no las mires, mantienen tu cerebro en modo alerta.</p>
+
+  <p><strong style="color: var(--moon)">Temperatura fresca.</strong> Como explicamos en nuestro artículo anterior, entre 16 y 19°C es la temperatura ideal para que el cuerpo entre en modo descanso.</p>
+
+  <!-- AFILIADO 3: Lámpara -->
+  <div class="affiliate-card">
+    <div class="affiliate-emoji">💡</div>
+    <div class="affiliate-info">
+      <span class="affiliate-badge">✦ Lo que usamos</span>
+      <h4>Lámpara de luz cálida regulable — El ambiente perfecto</h4>
+      <p>Una lámpara con luz cálida y regulable transforma completamente el ambiente antes de dormir. Mucho más efectivo que apagar simplemente la luz del techo. Pon la intensidad al mínimo mientras haces la rutina.</p>
+      <a href="https://www.amazon.es/s?k=lampara+luz+calida+regulable+dormitorio&tag=mododescanso-21" class="affiliate-btn" target="_blank">Ver en Amazon →</a>
+    </div>
+  </div>
+
+  <h2>¿Cuándo empezarás a notar resultados?</h2>
+
+  <p>La respiración 4-7-8 funciona desde la primera noche. Notarás que te cuesta menos entrar en sueño. El vaciado mental también tiene efecto inmediato, especialmente si tienes muchos pendientes en la cabeza.</p>
+
+  <p>Los suplementos tardan entre 1 y 3 semanas en acumularse en el organismo y mostrar su efecto completo. La clave es la consistencia, no la intensidad.</p>
+
+  <div class="highlight-box">
+    <p>"No necesitas hacerlo perfecto. Necesitas hacerlo cada noche."</p>
+  </div>
+
+  <div class="conclusion">
+    <h2>El resumen</h2>
+    <p>10 minutos antes de dormir: respiración 4-7-8, vaciado mental en papel y relajación muscular progresiva. Entorno oscuro y fresco. Magnesio 30 minutos antes. Consistencia durante 2 semanas. Eso es todo.</p>
+    <p style="margin-top:1rem; color: var(--soft); font-size:0.9rem">¿Te ha ayudado? Suscríbete a nuestra newsletter para recibir un hábito de descanso cada semana.</p>
+  </div>
+
+</div>
+
+<footer>
+  <p>© 2026 ModoDescanso · Algunos enlaces son de afiliado Amazon (mododescanso-21). Esto nos ayuda a mantener el contenido gratuito para ti.</p>
+</footer>
+
+</body>
+</html>
