@@ -8,237 +8,154 @@
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
   :root {
-    --night: #0d1117; --deep: #161b27; --card: #1c2333; --border: #2a3448;
-    --moon: #c8b8f0; --star: #f0e6c8; --soft: #8b9cb8; --text: #dde3ee;
-    --accent: #7c6bb0; --glow: rgba(124,107,176,0.15);
+    --night: #0d1117;
+    --deep: #161b27;
+    --card: #1c2333;
+    --border: #2a3448;
+    --moon: #c8b8f0;
+    --star: #f0e6c8;
+    --soft: #8b9cb8;
+    --text: #dde3ee;
+    --accent: #7c6bb0;
+    --glow: rgba(124,107,176,0.15);
   }
+
   * { margin: 0; padding: 0; box-sizing: border-box; }
   body { background: var(--night); color: var(--text); font-family: 'DM Sans', sans-serif; font-weight: 300; line-height: 1.8; overflow-x: hidden; }
-  body::before {
-    content: ''; position: fixed; inset: 0;
-    background-image:
-      radial-gradient(1px 1px at 15% 20%, rgba(200,184,240,0.5) 0%, transparent 100%),
-      radial-gradient(1px 1px at 45% 10%, rgba(200,184,240,0.3) 0%, transparent 100%),
-      radial-gradient(1px 1px at 75% 30%, rgba(240,230,200,0.4) 0%, transparent 100%),
-      radial-gradient(1px 1px at 90% 60%, rgba(200,184,240,0.3) 0%, transparent 100%),
-      radial-gradient(1px 1px at 20% 75%, rgba(240,230,200,0.3) 0%, transparent 100%);
-    pointer-events: none; z-index: 0;
-  }
-  nav { position: sticky; top: 0; z-index: 100; background: rgba(13,17,23,0.85); backdrop-filter: blur(20px); border-bottom: 1px solid var(--border); padding: 1rem 2rem; display: flex; justify-content: space-between; align-items: center; }
+
+  /* NAV */
+  nav { position: sticky; top: 0; z-index: 100; background: rgba(13,17,23,0.92); backdrop-filter: blur(20px); border-bottom: 1px solid var(--border); padding: 1rem 2rem; display: flex; justify-content: space-between; align-items: center; }
   .logo { font-family: 'Playfair Display', serif; font-size: 1.4rem; color: var(--moon); text-decoration: none; }
   .logo span { color: var(--star); font-style: italic; }
-  nav ul { list-style: none; display: flex; gap: 2rem; }
-  nav a { color: var(--soft); text-decoration: none; font-size: 0.9rem; font-weight: 400; transition: color 0.3s; letter-spacing: 0.05em; text-transform: uppercase; }
-  nav a:hover { color: var(--moon); }
+  .nav-links { list-style: none; display: flex; gap: 2rem; }
+  .nav-links a { color: var(--soft); text-decoration: none; font-size: 0.85rem; font-weight: 400; transition: color 0.3s; letter-spacing: 0.05em; text-transform: uppercase; }
+  .nav-links a:hover { color: var(--moon); }
+
+  /* HAMBURGER */
+  .hamburger { display: flex; flex-direction: column; gap: 5px; cursor: pointer; padding: 0.5rem; background: none; border: none; }
+  .hamburger span { display: block; width: 24px; height: 2px; background: var(--moon); border-radius: 2px; }
+
+  /* SIDEBAR */
+  .sidebar { position: fixed; top: 0; right: -320px; width: 300px; height: 100vh; background: var(--deep); border-left: 1px solid var(--border); z-index: 500; transition: right 0.35s ease; overflow-y: auto; padding: 2rem 1.5rem; }
+  .sidebar.open { right: 0; }
+  .sidebar-overlay { position: fixed; inset: 0; background: rgba(0,0,0,0.6); z-index: 400; opacity: 0; pointer-events: none; transition: opacity 0.35s; }
+  .sidebar-overlay.open { opacity: 1; pointer-events: all; }
+  .sidebar-close { display: flex; justify-content: flex-end; margin-bottom: 1.5rem; cursor: pointer; background: none; border: none; color: var(--moon); font-size: 1.5rem; width: 100%; }
+  .sidebar-logo { font-family: 'Playfair Display', serif; font-size: 1.4rem; color: var(--moon); text-decoration: none; display: block; margin-bottom: 1.5rem; padding-bottom: 1.5rem; border-bottom: 1px solid var(--border); }
+  .sidebar-logo span { color: var(--star); font-style: italic; }
+  .sidebar-label { font-size: 0.68rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--accent); margin-bottom: 0.6rem; padding-left: 0.5rem; display: block; }
+  .sidebar-link { display: flex; align-items: center; gap: 0.75rem; padding: 0.6rem 0.75rem; color: var(--soft); text-decoration: none; font-size: 0.9rem; border-radius: 10px; transition: all 0.2s; margin-bottom: 0.15rem; }
+  .sidebar-link:hover { background: var(--card); color: var(--moon); }
+  .sidebar-hr { border: none; border-top: 1px solid var(--border); margin: 1.25rem 0; }
+  .sidebar-section { margin-bottom: 1.25rem; }
 
   /* HERO */
-  .hero {
-    position: relative; z-index: 1;
-    text-align: center; padding: 6rem 2rem 4rem;
-    max-width: 800px; margin: 0 auto;
-  }
-  .hero-badge { display: inline-block; background: var(--glow); border: 1px solid var(--accent); color: var(--moon); font-size: 0.75rem; letter-spacing: 0.15em; text-transform: uppercase; padding: 0.4rem 1.2rem; border-radius: 100px; margin-bottom: 1.5rem; animation: fadeUp 0.8s ease both; }
-  .hero h1 { font-family: 'Playfair Display', serif; font-size: clamp(2.2rem, 5vw, 3.8rem); color: var(--star); line-height: 1.15; margin-bottom: 1.5rem; animation: fadeUp 0.8s 0.1s ease both; }
+  .hero { text-align: center; padding: 6rem 2rem 4rem; max-width: 800px; margin: 0 auto; }
+  .hero-badge { display: inline-block; background: var(--glow); border: 1px solid var(--accent); color: var(--moon); font-size: 0.75rem; letter-spacing: 0.15em; text-transform: uppercase; padding: 0.4rem 1.2rem; border-radius: 100px; margin-bottom: 1.5rem; }
+  .hero h1 { font-family: 'Playfair Display', serif; font-size: clamp(2.2rem, 5vw, 3.8rem); color: var(--star); line-height: 1.15; margin-bottom: 1.5rem; }
   .hero h1 em { font-style: italic; color: var(--moon); }
-  .hero p { font-size: 1.1rem; color: var(--soft); max-width: 600px; margin: 0 auto; animation: fadeUp 0.8s 0.2s ease both; }
+  .hero p { font-size: 1.1rem; color: var(--soft); max-width: 600px; margin: 0 auto; }
 
   /* STORY */
-  .story { position: relative; z-index: 1; max-width: 800px; margin: 0 auto; padding: 4rem 2rem; }
+  .story { max-width: 800px; margin: 0 auto; padding: 4rem 2rem; }
   .story p { font-size: 1.05rem; color: var(--text); margin-bottom: 1.5rem; }
-  .story p strong { color: var(--moon); font-weight: 500; }
-
-  .quote {
-    background: var(--card); border: 1px solid var(--border); border-left: 4px solid var(--accent);
-    border-radius: 12px; padding: 2rem; margin: 2.5rem 0;
-    font-family: 'Playfair Display', serif; font-size: 1.3rem; font-style: italic;
-    color: var(--moon); line-height: 1.5;
-  }
+  .story strong { color: var(--moon); font-weight: 500; }
+  .quote { background: var(--card); border: 1px solid var(--border); border-left: 4px solid var(--accent); border-radius: 12px; padding: 2rem; margin: 2.5rem 0; font-family: 'Playfair Display', serif; font-size: 1.2rem; font-style: italic; color: var(--moon); line-height: 1.5; }
 
   /* VALUES */
-  .values-section { position: relative; z-index: 1; background: var(--deep); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+  .values-section { background: var(--deep); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
   .values-inner { max-width: 1100px; margin: 0 auto; padding: 5rem 2rem; }
-  .section-label { font-size: 0.75rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--accent); margin-bottom: 0.75rem; }
+  .section-label { font-size: 0.75rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--accent); margin-bottom: 0.75rem; display: block; }
   .section-title { font-family: 'Playfair Display', serif; font-size: clamp(1.8rem, 4vw, 2.5rem); color: var(--star); margin-bottom: 0.75rem; line-height: 1.2; }
   .section-sub { color: var(--soft); max-width: 500px; margin-bottom: 3rem; }
-
-  .values-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 1.5rem; }
+  .values-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.5rem; }
   .value-card { background: var(--card); border: 1px solid var(--border); border-radius: 16px; padding: 2rem; transition: border-color 0.3s, transform 0.3s; }
   .value-card:hover { border-color: var(--accent); transform: translateY(-3px); }
   .value-icon { font-size: 2rem; margin-bottom: 1rem; display: block; }
-  .value-card h3 { font-family: 'Playfair Display', serif; color: var(--star); font-size: 1.1rem; margin-bottom: 0.5rem; }
-  .value-card p { font-size: 0.88rem; color: var(--soft); line-height: 1.6; margin: 0; }
+  .value-card h3 { font-family: 'Playfair Display', serif; color: var(--star); font-size: 1.05rem; margin-bottom: 0.5rem; }
+  .value-card p { font-size: 0.87rem; color: var(--soft); line-height: 1.6; margin: 0; }
 
   /* TEAM */
-  .team-section { position: relative; z-index: 1; max-width: 1100px; margin: 0 auto; padding: 5rem 2rem; }
-  .team-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.5rem; margin-top: 3rem; } @media(max-width:900px){.team-grid{grid-template-columns:repeat(2,1fr);}} @media(max-width:500px){.team-grid{grid-template-columns:1fr;}}
+  .team-section { max-width: 1100px; margin: 0 auto; padding: 5rem 2rem; }
+  .team-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.5rem;
+    margin-top: 3rem;
+  }
   .team-card { background: var(--card); border: 1px solid var(--border); border-radius: 20px; overflow: hidden; transition: border-color 0.3s, transform 0.3s; }
   .team-card:hover { border-color: var(--accent); transform: translateY(-4px); }
   .team-avatar { height: 160px; display: flex; align-items: center; justify-content: center; }
-  .team-body { padding: 1.5rem; }
-  .team-body h3 { font-family: 'Playfair Display', serif; color: var(--star); font-size: 1.1rem; margin-bottom: 0.2rem; }
-  .team-role { font-size: 0.78rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent); margin-bottom: 0.75rem; display: block; }
-  .team-body p { font-size: 0.87rem; color: var(--soft); line-height: 1.6; margin: 0; }
+  .avatar-circle { width: 80px; height: 80px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-family: 'Playfair Display', serif; font-size: 1.8rem; color: white; font-weight: 700; }
+  .team-body { padding: 1.25rem; }
+  .team-body h3 { font-family: 'Playfair Display', serif; color: var(--star); font-size: 1rem; margin-bottom: 0.2rem; }
+  .team-role { font-size: 0.72rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent); margin-bottom: 0.6rem; display: block; }
+  .team-body p { font-size: 0.82rem; color: var(--soft); line-height: 1.5; margin: 0; }
 
   /* MISSION */
-  .mission { position: relative; z-index: 1; background: var(--deep); border-top: 1px solid var(--border); }
+  .mission { background: var(--deep); border-top: 1px solid var(--border); }
   .mission-inner { max-width: 800px; margin: 0 auto; padding: 5rem 2rem; text-align: center; }
   .mission h2 { font-family: 'Playfair Display', serif; font-size: clamp(1.8rem, 4vw, 2.8rem); color: var(--star); margin-bottom: 1.5rem; line-height: 1.2; }
   .mission p { color: var(--soft); font-size: 1.05rem; max-width: 600px; margin: 0 auto 2rem; }
-  .mission-cta { display: inline-block; background: linear-gradient(135deg, var(--accent), #9d8fd4); color: white; text-decoration: none; padding: 0.9rem 2.5rem; border-radius: 100px; font-weight: 500; font-size: 0.95rem; transition: opacity 0.3s, transform 0.3s; box-shadow: 0 0 30px rgba(124,107,176,0.3); }
-  .mission-cta:hover { opacity: 0.85; transform: translateY(-2px); }
+  .mission-cta { display: inline-block; background: linear-gradient(135deg, var(--accent), #9d8fd4); color: white; text-decoration: none; padding: 0.9rem 2.5rem; border-radius: 100px; font-weight: 500; font-size: 0.95rem; transition: opacity 0.3s; }
+  .mission-cta:hover { opacity: 0.85; }
 
-  footer { position: relative; z-index: 1; border-top: 1px solid var(--border); padding: 2.5rem 2rem; text-align: center; color: var(--soft); font-size: 0.85rem; }
+  footer { border-top: 1px solid var(--border); padding: 2.5rem 2rem; text-align: center; color: var(--soft); font-size: 0.85rem; }
   .footer-logo { font-family: 'Playfair Display', serif; color: var(--moon); font-size: 1.2rem; margin-bottom: 0.5rem; }
 
-  @keyframes fadeUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
-  @media (max-width: 600px) { nav ul { display: none; } }
-
-  /* HAMBURGER MENU */
-  .hamburger {
-    display: flex;
-    flex-direction: column;
-    gap: 5px;
-    cursor: pointer;
-    padding: 0.5rem;
-    z-index: 300;
-    background: none;
-    border: none;
+  @media (max-width: 1100px) {
+    .team-grid { grid-template-columns: repeat(2, 1fr); }
+    .values-grid { grid-template-columns: repeat(2, 1fr); }
   }
-  .hamburger span {
-    display: block;
-    width: 24px;
-    height: 2px;
-    background: var(--moon);
-    border-radius: 2px;
-    transition: all 0.3s;
+  @media (max-width: 600px) {
+    .nav-links { display: none; }
+    .team-grid { grid-template-columns: repeat(2, 1fr); }
+    .values-grid { grid-template-columns: 1fr 1fr; }
   }
-  .sidebar {
-    position: fixed;
-    top: 0;
-    right: -340px;
-    width: 320px;
-    height: 100vh;
-    background: var(--deep);
-    border-left: 1px solid var(--border);
-    z-index: 500;
-    transition: right 0.35s cubic-bezier(0.4,0,0.2,1);
-    overflow-y: auto;
-    padding: 2rem 1.5rem;
-  }
-  .sidebar.open { right: 0; }
-  .sidebar-overlay {
-    position: fixed;
-    inset: 0;
-    background: rgba(0,0,0,0.6);
-    z-index: 400;
-    opacity: 0;
-    pointer-events: none;
-    transition: opacity 0.35s;
-  }
-  .sidebar-overlay.open { opacity: 1; pointer-events: all; }
-  .sidebar-close {
-    display: flex;
-    justify-content: flex-end;
-    margin-bottom: 2rem;
-    cursor: pointer;
-    color: var(--soft);
-    font-size: 1.5rem;
-    background: none;
-    border: none;
-    color: var(--moon);
-  }
-  .sidebar-logo {
-    font-family: 'Playfair Display', serif;
-    font-size: 1.4rem;
-    color: var(--moon);
-    text-decoration: none;
-    display: block;
-    margin-bottom: 2rem;
-    padding-bottom: 1.5rem;
-    border-bottom: 1px solid var(--border);
-  }
-  .sidebar-logo span { color: var(--star); font-style: italic; }
-  .sidebar-section {
-    margin-bottom: 2rem;
-  }
-  .sidebar-section-title {
-    font-size: 0.7rem;
-    letter-spacing: 0.2em;
-    text-transform: uppercase;
-    color: var(--accent);
-    margin-bottom: 0.75rem;
-    padding-left: 0.5rem;
-  }
-  .sidebar-link {
-    display: flex;
-    align-items: center;
-    gap: 0.75rem;
-    padding: 0.65rem 0.75rem;
-    color: var(--soft);
-    text-decoration: none;
-    font-size: 0.95rem;
-    border-radius: 10px;
-    transition: all 0.2s;
-    margin-bottom: 0.25rem;
-  }
-  .sidebar-link:hover {
-    background: var(--card);
-    color: var(--moon);
-  }
-  .sidebar-link .icon { font-size: 1.1rem; width: 24px; text-align: center; }
-  .sidebar-divider {
-    border: none;
-    border-top: 1px solid var(--border);
-    margin: 1.5rem 0;
-  }
-
 </style>
 </head>
 <body>
 
 <nav>
   <a href="index.html" class="logo">Modo<span>Descanso</span></a>
-  <ul>
+  <ul class="nav-links">
     <li><a href="index.html">Inicio</a></li>
     <li><a href="productos.html">Productos</a></li>
-    <li><a href="sobre-nosotros.html" style="color:var(--moon)">Nosotros</a></li>
+    <li><a href="sobre-nosotros.html">Nosotros</a></li>
+    <li><a href="index.html#newsletter">Newsletter</a></li>
   </ul>
+  <button class="hamburger" onclick="openSidebar()">
+    <span></span><span></span><span></span>
+  </button>
 </nav>
 
 <!-- HERO -->
 <div class="hero">
   <span class="hero-badge">✦ Nuestra historia</span>
   <h1>Nacimos del agotamiento.<br><em>Crecimos con propósito.</em></h1>
-  <p>Somos un equipo que un día decidió que sentirse cansada, apagada y sin tiempo para una misma no podía ser lo normal. Y creamos ModoDescanso.</p>
+  <p>Somos un equipo que decidió que sentirse cansado, apagado y sin tiempo para uno mismo no podía ser lo normal. Y creamos ModoDescanso.</p>
 </div>
 
 <!-- STORY -->
 <div class="story">
-  <p>Todo empezó con una conversación entre amigas. Trabajos exigentes, familias que atender, listas de tareas interminables y la sensación constante de que el cuerpo pedía parar pero la vida no permitía hacerlo. <strong>El descanso se había convertido en un lujo.</strong> Y la piel, el pelo y el bienestar en general eran las primeras víctimas.</p>
-
+  <p>Todo empezó con una conversación entre amigos. Trabajos exigentes, familias que atender, listas de tareas interminables y la sensación constante de que el cuerpo pedía parar pero la vida no permitía hacerlo. <strong>El descanso se había convertido en un lujo.</strong> Y la piel, el pelo y el bienestar en general eran las primeras víctimas.</p>
   <p>Investigamos. Probamos. Nos equivocamos muchas veces. Gastamos dinero en productos que prometían milagros y no funcionaban. Seguimos consejos de influencers que solo vendían humo. Y poco a poco fuimos construyendo algo que nadie nos había dado: <strong>una guía honesta, sin publicidad encubierta, sin milagros falsos.</strong></p>
-
-  <div class="quote">
-    "Queremos ser el equipo de amigas expertas que todas necesitamos. Las que te dicen la verdad, te recomiendan lo que funciona y te acompañan en el camino hacia sentirte mejor."
-  </div>
-
-  <p>Hoy ModoDescanso es mucho más que un blog de sueño. Es una plataforma de bienestar integral pensada para la mujer moderna: la que trabaja, cuida, crea y además quiere encontrar tiempo para cuidarse a sí misma. <strong>Hablamos de sueño, salud, belleza, rutinas y todo lo que hay en medio.</strong></p>
-
-  <p>No somos médicos ni dermatólogos. Somos un equipo que investiga, prueba y filtra por ti. Cada artículo que publicamos, cada producto que recomendamos, pasa por un criterio claro: <strong>¿lo usaríamos nosotras?</strong> Si la respuesta es no, no aparece aquí.</p>
+  <div class="quote">"Queremos ser el equipo experto que todos necesitamos. Los que te dicen la verdad, te recomiendan lo que funciona y te acompañan en el camino hacia sentirte mejor."</div>
+  <p>Hoy ModoDescanso es mucho más que un blog de sueño. Es una plataforma de bienestar integral pensada para cualquier persona que quiera cuidarse de verdad. <strong>Hablamos de sueño, salud, belleza, rutinas y todo lo que hay en medio.</strong></p>
+  <p>No somos médicos ni dermatólogos. Somos un equipo que investiga, prueba y filtra por ti. Cada artículo que publicamos, cada producto que recomendamos, pasa por un criterio claro: <strong>¿lo usaríamos nosotros?</strong> Si la respuesta es no, no aparece aquí.</p>
 </div>
 
 <!-- VALUES -->
 <div class="values-section">
   <div class="values-inner">
-    <p class="section-label">✦ Lo que nos mueve</p>
+    <span class="section-label">✦ Lo que nos mueve</span>
     <h2 class="section-title">Nuestros valores</h2>
     <p class="section-sub">Por qué hacemos lo que hacemos y cómo lo hacemos.</p>
-
     <div class="values-grid">
       <div class="value-card">
         <span class="value-icon">🔍</span>
         <h3>Honestidad ante todo</h3>
-        <p>No recomendamos algo por que pague más comisión. Lo recomendamos si creemos que funciona. Si un producto no nos convence, lo decimos.</p>
+        <p>No recomendamos algo porque pague más comisión. Lo recomendamos si creemos que funciona. Si un producto no nos convence, lo decimos.</p>
       </div>
       <div class="value-card">
         <span class="value-icon">🧪</span>
@@ -247,7 +164,7 @@
       </div>
       <div class="value-card">
         <span class="value-icon">💜</span>
-        <h3>Para mujeres reales</h3>
+        <h3>Para personas reales</h3>
         <p>No hablamos de rutinas de 2 horas ni de presupuestos infinitos. Hablamos de lo que funciona para quien tiene una vida real y tiempo limitado.</p>
       </div>
       <div class="value-card">
@@ -261,99 +178,100 @@
 
 <!-- TEAM -->
 <div class="team-section">
-  <p class="section-label">✦ El equipo</p>
+  <span class="section-label">✦ El equipo</span>
   <h2 class="section-title">Las personas detrás<br><em style="color:var(--moon);font-style:italic;">de ModoDescanso</em></h2>
-  <p class="section-sub">Un equipo pequeño con mucha pasión por el bienestar y la honestidad.</p>
+  <p class="section-sub">Un equipo internacional con pasión por el bienestar y la honestidad.</p>
 
   <div class="team-grid">
 
     <div class="team-card">
-      <div class="team-avatar" style="background:linear-gradient(135deg,#2a1f4e,#5c4a8a);display:flex;align-items:center;justify-content:center;">
-        <div style="width:80px;height:80px;border-radius:50%;background:linear-gradient(135deg,#7c6bb0,#c8b8f0);display:flex;align-items:center;justify-content:center;font-family:'Playfair Display',serif;font-size:2rem;color:white;font-weight:700;">LM</div>
+      <div class="team-avatar" style="background:linear-gradient(135deg,#2a1f4e,#5c4a8a)">
+        <div class="avatar-circle" style="background:linear-gradient(135deg,#7c6bb0,#c8b8f0)">LM</div>
       </div>
       <div class="team-body">
         <h3>Laura Mendoza</h3>
         <span class="team-role">Fundadora & CEO</span>
-        <p>Experta en bienestar y sueño con 8 años de experiencia. La mente y el alma detrás de ModoDescanso. Cree que cuidarse bien es el acto más revolucionario que puede hacer una mujer.</p>
+        <p>Experta en bienestar y sueño con 8 años de experiencia. La mente y el alma detrás de ModoDescanso.</p>
       </div>
     </div>
 
-
     <div class="team-card">
-      <div class="team-avatar" style="background:linear-gradient(135deg,#1a2a3a,#2a4a6a);display:flex;align-items:center;justify-content:center;">
-        <div style="width:80px;height:80px;border-radius:50%;background:linear-gradient(135deg,#2a4a6a,#6a9ac0);display:flex;align-items:center;justify-content:center;font-family:'Playfair Display',serif;font-size:2rem;color:white;font-weight:700;">NS</div>
+      <div class="team-avatar" style="background:linear-gradient(135deg,#1a2a3a,#2a4a6a)">
+        <div class="avatar-circle" style="background:linear-gradient(135deg,#2a4a6a,#6a9ac0)">NS</div>
       </div>
       <div class="team-body">
         <h3>Nina Schreiber</h3>
         <span class="team-role">COO — Directora de Operaciones</span>
-        <p>Vienesa con MBA en ESADE y más de 10 años gestionando equipos en empresas de salud y bienestar. La que hace que todo funcione entre bastidores y que los proyectos lleguen a buen puerto.</p>
+        <p>Vienesa con MBA en ESADE y más de 10 años gestionando equipos en empresas de salud y bienestar.</p>
       </div>
     </div>
 
     <div class="team-card">
-      <div class="team-avatar" style="background:linear-gradient(135deg,#1a3a2a,#2d6a4f);display:flex;align-items:center;justify-content:center;">
-        <div style="width:80px;height:80px;border-radius:50%;background:linear-gradient(135deg,#2d6a4f,#7ec8a0);display:flex;align-items:center;justify-content:center;font-family:'Playfair Display',serif;font-size:2rem;color:white;font-weight:700;">SK</div>
+      <div class="team-avatar" style="background:linear-gradient(135deg,#1a3a2a,#2d6a4f)">
+        <div class="avatar-circle" style="background:linear-gradient(135deg,#2d6a4f,#7ec8a0)">SK</div>
       </div>
       <div class="team-body">
         <h3>Sophie Krämer</h3>
         <span class="team-role">Directora de Belleza & Skin Care</span>
-        <p>Formuladora cosmética alemana y experta en K-beauty. Analiza ingredientes, desmonta mitos y es nuestra referencia en todo lo relacionado con el cuidado de la piel.</p>
+        <p>Formuladora cosmética alemana y experta en K-beauty. Analiza ingredientes y desmonta mitos.</p>
       </div>
     </div>
 
     <div class="team-card">
-      <div class="team-avatar" style="background:linear-gradient(135deg,#3a1a2a,#7a3a5a);display:flex;align-items:center;justify-content:center;">
-        <div style="width:80px;height:80px;border-radius:50%;background:linear-gradient(135deg,#7a3a5a,#c87aa0);display:flex;align-items:center;justify-content:center;font-family:'Playfair Display',serif;font-size:2rem;color:white;font-weight:700;">VR</div>
+      <div class="team-avatar" style="background:linear-gradient(135deg,#3a1a2a,#7a3a5a)">
+        <div class="avatar-circle" style="background:linear-gradient(135deg,#7a3a5a,#c87aa0)">VR</div>
       </div>
       <div class="team-body">
         <h3>Valentina Reyes</h3>
         <span class="team-role">Nutrición & Salud Hormonal</span>
-        <p>Dietista-nutricionista colombiana especializada en salud hormonal femenina y suplementación. La voz de la razón científica en cada recomendación que hacemos.</p>
+        <p>Dietista-nutricionista colombiana especializada en salud hormonal y suplementación femenina.</p>
       </div>
     </div>
 
     <div class="team-card">
-      <div class="team-avatar" style="background:linear-gradient(135deg,#1a2535,#2a4060);display:flex;align-items:center;justify-content:center;">
-        <div style="width:80px;height:80px;border-radius:50%;background:linear-gradient(135deg,#2a4060,#6a90c0);display:flex;align-items:center;justify-content:center;font-family:'Playfair Display',serif;font-size:2rem;color:white;font-weight:700;">CM</div>
+      <div class="team-avatar" style="background:linear-gradient(135deg,#1a2535,#2a4060)">
+        <div class="avatar-circle" style="background:linear-gradient(135deg,#2a4060,#6a90c0)">CM</div>
       </div>
       <div class="team-body">
         <h3>Claudia Moretti</h3>
         <span class="team-role">Psicología & Bienestar Mental</span>
-        <p>Psicóloga italiana especializada en estrés crónico, ansiedad y su impacto en el sueño. Aporta la perspectiva emocional que distingue a ModoDescanso de cualquier otro blog.</p>
+        <p>Psicóloga italiana especializada en estrés crónico, ansiedad y su impacto en el sueño.</p>
       </div>
     </div>
 
     <div class="team-card">
-      <div class="team-avatar" style="background:linear-gradient(135deg,#2a1a10,#6a4a2a);display:flex;align-items:center;justify-content:center;">
-        <div style="width:80px;height:80px;border-radius:50%;background:linear-gradient(135deg,#6a4a2a,#c09060);display:flex;align-items:center;justify-content:center;font-family:'Playfair Display',serif;font-size:2rem;color:white;font-weight:700;">IR</div>
+      <div class="team-avatar" style="background:linear-gradient(135deg,#2a1a10,#6a4a2a)">
+        <div class="avatar-circle" style="background:linear-gradient(135deg,#6a4a2a,#c09060)">IR</div>
       </div>
       <div class="team-body">
         <h3>Isabelle Rousseau</h3>
         <span class="team-role">Editora & Estrategia de Contenido</span>
-        <p>Periodista francesa con trayectoria en revistas de salud y lifestyle. Garantiza que cada artículo que publicamos tenga rigor, calidad y una voz que conecte de verdad.</p>
-      </div>
-  
-    <div class="team-card">
-      <div class="team-avatar" style="background:linear-gradient(135deg,#1a3a1a,#3a6a3a);display:flex;align-items:center;justify-content:center;">
-        <div style="width:80px;height:80px;border-radius:50%;background:linear-gradient(135deg,#3a6a3a,#80c080);display:flex;align-items:center;justify-content:center;font-family:'Playfair Display',serif;font-size:2rem;color:white;font-weight:700;">FH</div>
-      </div>
-      <div class="team-body">
-        <h3>Fabian Hartmann</h3>
-        <span class="team-role">Tecnología & SEO</span>
-        <p>Ingeniero alemán especializado en estrategia digital y posicionamiento web. Asegura que ModoDescanso llegue a las personas que más lo necesitan en el momento justo.</p>
+        <p>Periodista francesa con trayectoria en revistas de salud y lifestyle europeas.</p>
       </div>
     </div>
 
     <div class="team-card">
-      <div class="team-avatar" style="background:linear-gradient(135deg,#2a2a1a,#5a5a2a);display:flex;align-items:center;justify-content:center;">
-        <div style="width:80px;height:80px;border-radius:50%;background:linear-gradient(135deg,#5a5a2a,#aaa060);display:flex;align-items:center;justify-content:center;font-family:'Playfair Display',serif;font-size:2rem;color:white;font-weight:700;">MW</div>
+      <div class="team-avatar" style="background:linear-gradient(135deg,#1a3a1a,#3a6a3a)">
+        <div class="avatar-circle" style="background:linear-gradient(135deg,#3a6a3a,#80c080)">FH</div>
+      </div>
+      <div class="team-body">
+        <h3>Fabian Hartmann</h3>
+        <span class="team-role">Tecnología & SEO</span>
+        <p>Ingeniero alemán especializado en estrategia digital y posicionamiento web.</p>
+      </div>
+    </div>
+
+    <div class="team-card">
+      <div class="team-avatar" style="background:linear-gradient(135deg,#2a2a1a,#5a5a2a)">
+        <div class="avatar-circle" style="background:linear-gradient(135deg,#5a5a2a,#aaa060)">MW</div>
       </div>
       <div class="team-body">
         <h3>Markus Wolff</h3>
         <span class="team-role">Producto & Estrategia de Marca</span>
-        <p>Suizo-alemán con experiencia en startups de salud y bienestar. Da forma a la visión de largo plazo de ModoDescanso y lidera la expansión internacional del proyecto.</p>
+        <p>Suizo-alemán con experiencia en startups de salud. Lidera la expansión internacional.</p>
       </div>
     </div>
+
   </div>
 </div>
 
@@ -361,7 +279,7 @@
 <div class="mission">
   <div class="mission-inner">
     <h2>Nuestra misión es simple:<br><em style="color:var(--moon);font-style:italic;">que te cuides sin complicarte</em></h2>
-    <p>Queremos que cada mujer que llegue a ModoDescanso salga con una idea clara, un hábito nuevo o un producto que de verdad va a mejorar su día a día. Sin abrumarte. Sin venderte humo. Con honestidad.</p>
+    <p>Queremos que cada persona que llegue a ModoDescanso salga con una idea clara, un hábito nuevo o un producto que de verdad mejore su día a día. Sin abrumarte. Sin venderte humo. Con honestidad.</p>
     <a href="index.html" class="mission-cta">Explorar el contenido →</a>
   </div>
 </div>
@@ -370,6 +288,52 @@
   <div class="footer-logo">ModoDescanso</div>
   <p>© 2026 ModoDescanso.es — Hecho con 🌙 desde España</p>
 </footer>
+
+<!-- SIDEBAR -->
+<div class="sidebar-overlay" id="overlay" onclick="closeSidebar()"></div>
+<div class="sidebar" id="sidebar">
+  <button class="sidebar-close" onclick="closeSidebar()">✕</button>
+  <a href="index.html" class="sidebar-logo">Modo<span>Descanso</span></a>
+  <div class="sidebar-section">
+    <span class="sidebar-label">✦ Navegar</span>
+    <a href="index.html" class="sidebar-link">🏠 Inicio</a>
+    <a href="productos.html" class="sidebar-link">🛍️ Productos</a>
+    <a href="sobre-nosotros.html" class="sidebar-link">👥 Nosotros</a>
+    <a href="index.html#newsletter" class="sidebar-link">📩 Newsletter</a>
+  </div>
+  <hr class="sidebar-hr">
+  <div class="sidebar-section">
+    <span class="sidebar-label">✦ Categorías</span>
+    <a href="index.html#sueno" class="sidebar-link">😴 Sueño</a>
+    <a href="index.html#bienestar" class="sidebar-link">🧘 Bienestar</a>
+    <a href="index.html#salud" class="sidebar-link">💊 Salud</a>
+    <a href="index.html#belleza" class="sidebar-link">✨ Belleza</a>
+    <a href="index.html#rutinas" class="sidebar-link">☀️ Rutinas</a>
+  </div>
+  <hr class="sidebar-hr">
+  <div class="sidebar-section">
+    <span class="sidebar-label">✦ Artículos</span>
+    <a href="articulo1.html" class="sidebar-link">📖 Por qué estás siempre cansado</a>
+    <a href="articulo2.html" class="sidebar-link">📖 Rutina para la ansiedad</a>
+    <a href="articulo3.html" class="sidebar-link">📖 Magnesio, melatonina o ashwagandha</a>
+    <a href="articulo4.html" class="sidebar-link">📖 El móvil y tu sueño</a>
+    <a href="articulo5.html" class="sidebar-link">📖 Temperatura perfecta para dormir</a>
+    <a href="articulo6.html" class="sidebar-link">📖 Rutina matutina que no odies</a>
+  </div>
+</div>
+
+<script>
+  function openSidebar() {
+    document.getElementById('sidebar').classList.add('open');
+    document.getElementById('overlay').classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeSidebar() {
+    document.getElementById('sidebar').classList.remove('open');
+    document.getElementById('overlay').classList.remove('open');
+    document.body.style.overflow = '';
+  }
+</script>
 
 </body>
 </html>
