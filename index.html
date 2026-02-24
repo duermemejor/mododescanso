@@ -456,104 +456,23 @@
     .moon { display: none; }
   }
 
-  /* HAMBURGER MENU */
-  .hamburger {
-    display: flex;
-    flex-direction: column;
-    gap: 5px;
-    cursor: pointer;
-    padding: 0.5rem;
-    z-index: 300;
-    background: none;
-    border: none;
-  }
-  .hamburger span {
-    display: block;
-    width: 24px;
-    height: 2px;
-    background: var(--moon);
-    border-radius: 2px;
-    transition: all 0.3s;
-  }
-  .sidebar {
-    position: fixed;
-    top: 0;
-    right: -340px;
-    width: 320px;
-    height: 100vh;
-    background: var(--deep);
-    border-left: 1px solid var(--border);
-    z-index: 500;
-    transition: right 0.35s cubic-bezier(0.4,0,0.2,1);
-    overflow-y: auto;
-    padding: 2rem 1.5rem;
-  }
+  /* HAMBURGER */
+  .hamburger { display: flex; flex-direction: column; gap: 5px; cursor: pointer; padding: 0.5rem; background: none; border: none; z-index: 300; }
+  .hamburger span { display: block; width: 24px; height: 2px; background: var(--moon); border-radius: 2px; transition: all 0.3s; }
+
+  /* SIDEBAR */
+  .sidebar { position: fixed; top: 0; right: -340px; width: 300px; height: 100vh; background: var(--deep); border-left: 1px solid var(--border); z-index: 500; transition: right 0.35s cubic-bezier(0.4,0,0.2,1); overflow-y: auto; padding: 2rem 1.5rem; }
   .sidebar.open { right: 0; }
-  .sidebar-overlay {
-    position: fixed;
-    inset: 0;
-    background: rgba(0,0,0,0.6);
-    z-index: 400;
-    opacity: 0;
-    pointer-events: none;
-    transition: opacity 0.35s;
-  }
+  .sidebar-overlay { position: fixed; inset: 0; background: rgba(0,0,0,0.6); z-index: 400; opacity: 0; pointer-events: none; transition: opacity 0.35s; }
   .sidebar-overlay.open { opacity: 1; pointer-events: all; }
-  .sidebar-close {
-    display: flex;
-    justify-content: flex-end;
-    margin-bottom: 2rem;
-    cursor: pointer;
-    color: var(--soft);
-    font-size: 1.5rem;
-    background: none;
-    border: none;
-    color: var(--moon);
-  }
-  .sidebar-logo {
-    font-family: 'Playfair Display', serif;
-    font-size: 1.4rem;
-    color: var(--moon);
-    text-decoration: none;
-    display: block;
-    margin-bottom: 2rem;
-    padding-bottom: 1.5rem;
-    border-bottom: 1px solid var(--border);
-  }
+  .sidebar-close { display: flex; justify-content: flex-end; margin-bottom: 1.5rem; cursor: pointer; background: none; border: none; color: var(--moon); font-size: 1.5rem; width: 100%; }
+  .sidebar-logo { font-family: 'Playfair Display', serif; font-size: 1.4rem; color: var(--moon); text-decoration: none; display: block; margin-bottom: 1.5rem; padding-bottom: 1.5rem; border-bottom: 1px solid var(--border); }
   .sidebar-logo span { color: var(--star); font-style: italic; }
-  .sidebar-section {
-    margin-bottom: 2rem;
-  }
-  .sidebar-section-title {
-    font-size: 0.7rem;
-    letter-spacing: 0.2em;
-    text-transform: uppercase;
-    color: var(--accent);
-    margin-bottom: 0.75rem;
-    padding-left: 0.5rem;
-  }
-  .sidebar-link {
-    display: flex;
-    align-items: center;
-    gap: 0.75rem;
-    padding: 0.65rem 0.75rem;
-    color: var(--soft);
-    text-decoration: none;
-    font-size: 0.95rem;
-    border-radius: 10px;
-    transition: all 0.2s;
-    margin-bottom: 0.25rem;
-  }
-  .sidebar-link:hover {
-    background: var(--card);
-    color: var(--moon);
-  }
-  .sidebar-link .icon { font-size: 1.1rem; width: 24px; text-align: center; }
-  .sidebar-divider {
-    border: none;
-    border-top: 1px solid var(--border);
-    margin: 1.5rem 0;
-  }
+  .sidebar-section { margin-bottom: 1.5rem; }
+  .sidebar-section-title { font-size: 0.68rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--accent); margin-bottom: 0.6rem; padding-left: 0.5rem; display: block; }
+  .sidebar-link { display: flex; align-items: center; gap: 0.75rem; padding: 0.6rem 0.75rem; color: var(--soft); text-decoration: none; font-size: 0.9rem; border-radius: 10px; transition: all 0.2s; margin-bottom: 0.15rem; }
+  .sidebar-link:hover { background: var(--card); color: var(--moon); }
+  .sidebar-divider { border: none; border-top: 1px solid var(--border); margin: 1.25rem 0; }
 
 </style>
 </head>
@@ -561,22 +480,16 @@
 
 <!-- NAV -->
 <nav>
-  <div class="logo">Modo<span>Descanso</span></div>
-  <ul>
-    <li class="dropdown">
-      <a href="#articulos" class="dropdown-toggle">Artículos ▾</a>
-      <div class="dropdown-menu">
-        <a href="#sueno">😴 Sueño</a>
-        <a href="#bienestar">🧘 Bienestar</a>
-        <a href="#salud">💊 Salud</a>
-        <a href="#belleza">✨ Belleza</a>
-        <a href="#rutinas">☀️ Rutinas</a>
-      </div>
-    </li>
+  <a href="index.html" class="logo">Modo<span>Descanso</span></a>
+  <ul class="nav-links">
+    <li><a href="#articulos">Artículos</a></li>
     <li><a href="productos.html">Productos</a></li>
     <li><a href="sobre-nosotros.html">Nosotros</a></li>
     <li><a href="#newsletter">Newsletter</a></li>
   </ul>
+  <button class="hamburger" onclick="openSidebar()" aria-label="Menú">
+    <span></span><span></span><span></span>
+  </button>
 </nav>
 
 <!-- HERO -->
@@ -762,6 +675,58 @@
   <p>© 2026 ModoDescanso.es — Algunos enlaces son de afiliado. Esto nos ayuda a mantener el contenido gratuito.</p>
   <p style="margin-top:0.25rem">Hecho con 🌙 desde España</p>
 </footer>
+
+
+<!-- OVERLAY + SIDEBAR -->
+<div class="sidebar-overlay" id="overlay" onclick="closeSidebar()"></div>
+<div class="sidebar" id="sidebar">
+  <button class="sidebar-close" onclick="closeSidebar()">✕</button>
+  <a href="index.html" class="sidebar-logo">Modo<span>Descanso</span></a>
+
+  <div class="sidebar-section">
+    <span class="sidebar-section-title">✦ Navegar</span>
+    <a href="index.html" class="sidebar-link">🏠 Inicio</a>
+    <a href="productos.html" class="sidebar-link">🛍️ Productos</a>
+    <a href="sobre-nosotros.html" class="sidebar-link">👥 Nosotros</a>
+    <a href="#newsletter" class="sidebar-link" onclick="closeSidebar()">📩 Newsletter</a>
+  </div>
+
+  <hr class="sidebar-divider">
+
+  <div class="sidebar-section">
+    <span class="sidebar-section-title">✦ Categorías</span>
+    <a href="#sueno" class="sidebar-link" onclick="closeSidebar()">😴 Sueño</a>
+    <a href="#bienestar" class="sidebar-link" onclick="closeSidebar()">🧘 Bienestar</a>
+    <a href="#salud" class="sidebar-link" onclick="closeSidebar()">💊 Salud</a>
+    <a href="#belleza" class="sidebar-link" onclick="closeSidebar()">✨ Belleza</a>
+    <a href="#rutinas" class="sidebar-link" onclick="closeSidebar()">☀️ Rutinas</a>
+  </div>
+
+  <hr class="sidebar-divider">
+
+  <div class="sidebar-section">
+    <span class="sidebar-section-title">✦ Artículos</span>
+    <a href="articulo1.html" class="sidebar-link">📖 Por qué estás siempre cansado</a>
+    <a href="articulo2.html" class="sidebar-link">📖 Rutina para la ansiedad</a>
+    <a href="articulo3.html" class="sidebar-link">📖 Magnesio, melatonina o ashwagandha</a>
+    <a href="articulo4.html" class="sidebar-link">📖 El móvil y tu sueño</a>
+    <a href="articulo5.html" class="sidebar-link">📖 Temperatura perfecta para dormir</a>
+    <a href="articulo6.html" class="sidebar-link">📖 Rutina matutina que no odies</a>
+  </div>
+</div>
+
+<script>
+  function openSidebar() {
+    document.getElementById('sidebar').classList.add('open');
+    document.getElementById('overlay').classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeSidebar() {
+    document.getElementById('sidebar').classList.remove('open');
+    document.getElementById('overlay').classList.remove('open');
+    document.body.style.overflow = '';
+  }
+</script>
 
 </body>
 </html>
