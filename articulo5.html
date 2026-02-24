@@ -7,10 +7,19 @@
 <meta name="description" content="Un pequeño cambio en la temperatura de tu habitación puede mejorar tu sueño más que cualquier suplemento. Te explicamos el porqué y cómo lograrlo.">
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
+
+  nav { position: sticky; top: 0; z-index: 100; background: rgba(13,17,23,0.92); backdrop-filter: blur(20px); border-bottom: 1px solid var(--border); padding: 1rem 2rem; display: flex; justify-content: space-between; align-items: center; }
+  .nav-links { list-style: none; display: flex; gap: 2rem; padding: 0; margin: 0; }
+  .nav-links li { list-style: none; }
+  .nav-links a { color: var(--soft); text-decoration: none; font-size: 0.85rem; font-weight: 400; transition: color 0.3s; letter-spacing: 0.05em; text-transform: uppercase; }
+  .nav-links a:hover { color: var(--moon); }
+  .hamburger { display: flex; flex-direction: column; gap: 5px; cursor: pointer; padding: 0.5rem; background: none; border: none; }
+  .hamburger span { display: block; width: 24px; height: 2px; background: var(--moon); border-radius: 2px; }
+
   :root { --night: #0d1117; --deep: #161b27; --card: #1c2333; --border: #2a3448; --moon: #c8b8f0; --star: #f0e6c8; --soft: #8b9cb8; --text: #dde3ee; --accent: #7c6bb0; }
   * { margin: 0; padding: 0; box-sizing: border-box; }
   body { background: var(--night); color: var(--text); font-family: 'DM Sans', sans-serif; font-weight: 300; line-height: 1.8; }
-  nav { background: rgba(13,17,23,0.95); border-bottom: 1px solid var(--border); padding: 1rem 2rem; display: flex; justify-content: space-between; align-items: center; position: sticky; top: 0; z-index: 100; }
+  
   .logo { font-family: 'Playfair Display', serif; font-size: 1.3rem; color: var(--moon); text-decoration: none; }
   .logo span { color: var(--star); font-style: italic; }
   .article-wrap { max-width: 720px; margin: 0 auto; padding: 4rem 2rem; }
@@ -147,12 +156,15 @@
 <body>
 <nav>
   <a href="index.html" class="logo">Modo<span>Descanso</span></a>
-  <ul>
-    <li><a href="index.html#articulos">Artículos</a></li>
+  <ul class="nav-links">
+    <li><a href="index.html">Inicio</a></li>
     <li><a href="productos.html">Productos</a></li>
     <li><a href="sobre-nosotros.html">Nosotros</a></li>
     <li><a href="index.html#newsletter">Newsletter</a></li>
   </ul>
+  <button class="hamburger" onclick="openSidebar()">
+    <span></span><span></span><span></span>
+  </button>
 </nav>
 <div class="article-wrap">
   <a href="index.html" class="back-link">← Volver al inicio</a>
