@@ -92,6 +92,106 @@
 
   @keyframes fadeUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
   @media (max-width: 600px) { nav ul { display: none; } }
+
+  /* HAMBURGER MENU */
+  .hamburger {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    cursor: pointer;
+    padding: 0.5rem;
+    z-index: 300;
+    background: none;
+    border: none;
+  }
+  .hamburger span {
+    display: block;
+    width: 24px;
+    height: 2px;
+    background: var(--moon);
+    border-radius: 2px;
+    transition: all 0.3s;
+  }
+  .sidebar {
+    position: fixed;
+    top: 0;
+    right: -340px;
+    width: 320px;
+    height: 100vh;
+    background: var(--deep);
+    border-left: 1px solid var(--border);
+    z-index: 500;
+    transition: right 0.35s cubic-bezier(0.4,0,0.2,1);
+    overflow-y: auto;
+    padding: 2rem 1.5rem;
+  }
+  .sidebar.open { right: 0; }
+  .sidebar-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.6);
+    z-index: 400;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.35s;
+  }
+  .sidebar-overlay.open { opacity: 1; pointer-events: all; }
+  .sidebar-close {
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 2rem;
+    cursor: pointer;
+    color: var(--soft);
+    font-size: 1.5rem;
+    background: none;
+    border: none;
+    color: var(--moon);
+  }
+  .sidebar-logo {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.4rem;
+    color: var(--moon);
+    text-decoration: none;
+    display: block;
+    margin-bottom: 2rem;
+    padding-bottom: 1.5rem;
+    border-bottom: 1px solid var(--border);
+  }
+  .sidebar-logo span { color: var(--star); font-style: italic; }
+  .sidebar-section {
+    margin-bottom: 2rem;
+  }
+  .sidebar-section-title {
+    font-size: 0.7rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 0.75rem;
+    padding-left: 0.5rem;
+  }
+  .sidebar-link {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.65rem 0.75rem;
+    color: var(--soft);
+    text-decoration: none;
+    font-size: 0.95rem;
+    border-radius: 10px;
+    transition: all 0.2s;
+    margin-bottom: 0.25rem;
+  }
+  .sidebar-link:hover {
+    background: var(--card);
+    color: var(--moon);
+  }
+  .sidebar-link .icon { font-size: 1.1rem; width: 24px; text-align: center; }
+  .sidebar-divider {
+    border: none;
+    border-top: 1px solid var(--border);
+    margin: 1.5rem 0;
+  }
+
 </style>
 </head>
 <body>
@@ -232,7 +332,29 @@
         <span class="team-role">Editora & Estrategia de Contenido</span>
         <p>Periodista francesa con trayectoria en revistas de salud y lifestyle. Garantiza que cada artículo que publicamos tenga rigor, calidad y una voz que conecte de verdad.</p>
       </div>
+  
+    <div class="team-card">
+      <div class="team-avatar" style="background:linear-gradient(135deg,#1a3a1a,#3a6a3a);display:flex;align-items:center;justify-content:center;">
+        <div style="width:80px;height:80px;border-radius:50%;background:linear-gradient(135deg,#3a6a3a,#80c080);display:flex;align-items:center;justify-content:center;font-family:'Playfair Display',serif;font-size:2rem;color:white;font-weight:700;">FH</div>
+      </div>
+      <div class="team-body">
+        <h3>Fabian Hartmann</h3>
+        <span class="team-role">Tecnología & SEO</span>
+        <p>Ingeniero alemán especializado en estrategia digital y posicionamiento web. Asegura que ModoDescanso llegue a las personas que más lo necesitan en el momento justo.</p>
+      </div>
     </div>
+
+    <div class="team-card">
+      <div class="team-avatar" style="background:linear-gradient(135deg,#2a2a1a,#5a5a2a);display:flex;align-items:center;justify-content:center;">
+        <div style="width:80px;height:80px;border-radius:50%;background:linear-gradient(135deg,#5a5a2a,#aaa060);display:flex;align-items:center;justify-content:center;font-family:'Playfair Display',serif;font-size:2rem;color:white;font-weight:700;">MW</div>
+      </div>
+      <div class="team-body">
+        <h3>Markus Wolff</h3>
+        <span class="team-role">Producto & Estrategia de Marca</span>
+        <p>Suizo-alemán con experiencia en startups de salud y bienestar. Da forma a la visión de largo plazo de ModoDescanso y lidera la expansión internacional del proyecto.</p>
+      </div>
+    </div>
+  </div>
 </div>
 
 <!-- MISSION -->
