@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cómo crear una rutina matutina que no odies | Modo Descanso</title>
+<meta name="description" content="Levantarte bien empieza la noche anterior. Te damos el esquema exacto para despertar con energía real, no forzada. Sin madrugar a las 5am ni ser un monje tibetano.">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root { --night: #0d1117; --deep: #161b27; --card: #1c2333; --border: #2a3448; --moon: #c8b8f0; --star: #f0e6c8; --soft: #8b9cb8; --text: #dde3ee; --accent: #7c6bb0; }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { background: var(--night); color: var(--text); font-family: 'DM Sans', sans-serif; font-weight: 300; line-height: 1.8; }
+  nav { background: rgba(13,17,23,0.95); border-bottom: 1px solid var(--border); padding: 1rem 2rem; display: flex; justify-content: space-between; align-items: center; position: sticky; top: 0; z-index: 100; }
+  .logo { font-family: 'Playfair Display', serif; font-size: 1.3rem; color: var(--moon); text-decoration: none; }
+  .logo span { color: var(--star); font-style: italic; }
+  .article-wrap { max-width: 720px; margin: 0 auto; padding: 4rem 2rem; }
+  .article-tag { font-size: 0.75rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--accent); margin-bottom: 1rem; }
+  h1 { font-family: 'Playfair Display', serif; font-size: clamp(2rem, 5vw, 3rem); color: var(--star); line-height: 1.2; margin-bottom: 1.5rem; }
+  .article-meta { color: var(--soft); font-size: 0.85rem; margin-bottom: 2.5rem; padding-bottom: 2rem; border-bottom: 1px solid var(--border); }
+  .intro { font-size: 1.15rem; color: var(--moon); font-style: italic; margin-bottom: 2.5rem; padding-left: 1.5rem; border-left: 3px solid var(--accent); }
+  h2 { font-family: 'Playfair Display', serif; font-size: 1.6rem; color: var(--star); margin: 2.5rem 0 1rem; }
+  h3 { font-family: 'Playfair Display', serif; font-size: 1.2rem; color: var(--moon); margin: 2rem 0 0.75rem; }
+  p { margin-bottom: 1.25rem; color: var(--text); }
+  .highlight-box { background: var(--card); border: 1px solid var(--border); border-left: 4px solid var(--accent); border-radius: 8px; padding: 1.5rem; margin: 2rem 0; }
+  .highlight-box p { margin: 0; color: var(--moon); font-style: italic; }
+  .steps-grid { display: grid; gap: 1rem; margin: 1.5rem 0; }
+  .step { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 1.5rem; display: flex; gap: 1.25rem; align-items: flex-start; }
+  .step-num { background: var(--accent); color: white; width: 32px; height: 32px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 0.85rem; font-weight: 500; flex-shrink: 0; }
+  .step h4 { font-family: 'Playfair Display', serif; color: var(--star); margin-bottom: 0.4rem; font-size: 1rem; }
+  .step p { font-size: 0.9rem; color: var(--soft); margin: 0; }
+  .affiliate-card { background: var(--card); border: 1px solid var(--border); border-radius: 16px; padding: 1.75rem; margin: 2rem 0; display: flex; gap: 1.5rem; align-items: flex-start; transition: border-color 0.3s; }
+  .affiliate-card:hover { border-color: var(--accent); }
+  .affiliate-emoji { font-size: 2.5rem; flex-shrink: 0; }
+  .affiliate-info h4 { font-family: 'Playfair Display', serif; color: var(--star); font-size: 1.1rem; margin-bottom: 0.4rem; }
+  .affiliate-info p { font-size: 0.9rem; color: var(--soft); margin-bottom: 1rem; }
+  .affiliate-badge { display: inline-block; background: rgba(124,107,176,0.15); border: 1px solid var(--accent); color: var(--moon); font-size: 0.72rem; letter-spacing: 0.1em; text-transform: uppercase; padding: 0.2rem 0.7rem; border-radius: 100px; margin-bottom: 0.75rem; }
+  .affiliate-btn { display: inline-block; background: linear-gradient(135deg, var(--accent), #9d8fd4); color: white; text-decoration: none; padding: 0.6rem 1.5rem; border-radius: 100px; font-size: 0.85rem; font-weight: 500; transition: opacity 0.3s; }
+  .affiliate-btn:hover { opacity: 0.85; }
+  .conclusion { background: linear-gradient(135deg, var(--deep), var(--card)); border: 1px solid var(--border); border-radius: 16px; padding: 2rem; margin-top: 3rem; text-align: center; }
+  .conclusion h2 { margin-top: 0; }
+  footer { border-top: 1px solid var(--border); padding: 2rem; text-align: center; color: var(--soft); font-size: 0.8rem; margin-top: 4rem; }
+  .back-link { display: inline-block; color: var(--moon); text-decoration: none; font-size: 0.85rem; margin-bottom: 3rem; border-bottom: 1px solid transparent; transition: border-color 0.3s; }
+  .back-link:hover { border-color: var(--moon); }
+</style>
+</head>
+<body>
+<nav><a href="index.html" class="logo">Modo<span>Descanso</span></a></nav>
+<div class="article-wrap">
+  <a href="index.html" class="back-link">← Volver al inicio</a>
+  <p class="article-tag">✦ Rutinas · 8 min de lectura</p>
+  <h1>Cómo crear una rutina matutina que no odies</h1>
+  <p class="article-meta">Por Modo Descanso · Febrero 2026</p>
+  <p class="intro">No tienes que levantarte a las 5am ni meditar una hora para tener una buena mañana. Solo necesitas hacer las cosas en el orden correcto.</p>
+
+  <p>Internet está lleno de gurús que se levantan a las 4:30am, hacen una hora de ejercicio, meditan 45 minutos, leen un libro y se duchan con agua fría antes de que salga el sol. Y tú los miras pensando que eso jamás va a ser tu vida.</p>
+  <p>Tienen razón en una cosa: la mañana marca el tono del día. Pero están equivocados en todo lo demás. Una buena rutina matutina no tiene que ser larga, dolorosa ni madrugadora. Tiene que ser tuya.</p>
+
+  <div class="highlight-box"><p>"Una rutina matutina que no cumples vale cero. Una rutina de 10 minutos que haces todos los días cambia tu vida."</p></div>
+
+  <h2>Por qué tu mañana empieza la noche anterior</h2>
+  <p>Este es el error más común: intentar construir una buena mañana sin cuidar la noche anterior. Si te acuestas tarde, con el móvil en la mano y con la cabeza a mil, no hay rutina matutina que te salve.</p>
+  <p>Los primeros 20 minutos después de despertar son los más importantes del día. Tu cerebro está en estado alfa, entre el sueño y la vigilia, y es muy susceptible a lo que recibe. Si lo primero que haces es abrir Instagram o las noticias, estás empezando el día en modo reactivo. Si lo primero que haces es algo intencional, empiezas en modo proactivo.</p>
+  <p>La diferencia en cómo te sientes el resto del día es enorme.</p>
+
+  <h2>La rutina mínima viable — 10 minutos</h2>
+  <p>Esta es la versión para días malos, días con poco tiempo o días en que simplemente no tienes ganas. Diez minutos que marcan la diferencia sin agobiarte.</p>
+
+  <div class="steps-grid">
+    <div class="step">
+      <div class="step-num">1</div>
+      <div>
+        <h4>Sin móvil los primeros 10 minutos — 0 min</h4>
+        <p>No es un paso que te ocupa tiempo, es una regla. El móvil no existe hasta que hayas completado el resto. Sin negociación.</p>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">2</div>
+      <div>
+        <h4>Agua — 1 minuto</h4>
+        <p>Un vaso grande de agua nada más levantarte. Has estado 7-8 horas sin beber. Tu cerebro funciona mejor hidratado y esto activa el metabolismo de forma inmediata.</p>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">3</div>
+      <div>
+        <h4>Luz natural — 5 minutos</h4>
+        <p>Sal al balcón, abre la ventana, o simplemente siéntate donde llegue luz natural. Cinco minutos de luz solar por la mañana sincroniza tu ritmo circadiano y hace que por la noche tengas sueño a la hora correcta. Es el hábito con mejor ratio esfuerzo/resultado que existe.</p>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">4</div>
+      <div>
+        <h4>Una sola intención — 4 minutos</h4>
+        <p>Escribe o piensa una sola cosa que quieres conseguir hoy. No una lista de 20 tareas. Una. Esto activa el modo proactivo y da dirección al día antes de que el caos externo te lo marque.</p>
+      </div>
+    </div>
+  </div>
+
+  <h2>La rutina completa — 30 minutos</h2>
+  <p>Para cuando tienes tiempo y quieres empezar el día de verdad bien. Añade estos pasos después de los 10 minutos básicos.</p>
+
+  <h3>Movimiento — 10 minutos</h3>
+  <p>No tiene que ser un entreno. Diez minutos de stretching, yoga ligero o simplemente caminar activan la circulación y liberan endorfinas. Tu cuerpo lleva horas inmóvil, necesita moverse antes de meterse en una silla durante 8 horas.</p>
+
+  <h3>Sin noticias ni redes en el desayuno</h3>
+  <p>El desayuno es el momento más fácil para caer en el scroll. Y las noticias por la mañana ponen tu sistema nervioso en modo alerta antes de que hayas tenido ni un café. Pon música, un podcast tranquilo, o simplemente come en silencio. Tu cerebro te lo agradecerá.</p>
+
+  <h3>Ducha con contraste de temperatura</h3>
+  <p>Termina la ducha con 30 segundos de agua fría. No tiene que ser toda fría, solo el final. El choque térmico activa el sistema nervioso simpático de forma controlada, libera noradrenalina y te deja con una energía y claridad mental que ningún café consigue.</p>
+
+  <div class="affiliate-card">
+    <div class="affiliate-emoji">💡</div>
+    <div class="affiliate-info">
+      <span class="affiliate-badge">✦ Lo que usamos</span>
+      <h4>Lámpara de simulación de amanecer</h4>
+      <p>Si te cuesta levantarte porque tu habitación está oscura, una lámpara que simula el amanecer te despierta de forma gradual con luz en vez de con el sonido agresivo de un despertador. Tu cuerpo sale del sueño de forma natural y llegas al día en un estado completamente diferente.</p>
+      <a href="https://www.amazon.es/s?k=lampara+simulacion+amanecer+despertador&tag=mododescanso-21" class="affiliate-btn" target="_blank">Ver en Amazon →</a>
+    </div>
+  </div>
+
+  <div class="affiliate-card">
+    <div class="affiliate-emoji">📓</div>
+    <div class="affiliate-info">
+      <span class="affiliate-badge">✦ Lo que usamos</span>
+      <h4>Diario de gratitud y planificación</h4>
+      <p>Escribir una sola intención por la mañana es mucho más efectivo con un diario físico que con el móvil. El acto de escribir a mano activa partes del cerebro que el teclado no activa. Cinco minutos con un diario por la mañana cambian cómo procesas el día.</p>
+      <a href="https://www.amazon.es/s?k=diario+gratitud+planificacion+manana&tag=mododescanso-21" class="affiliate-btn" target="_blank">Ver en Amazon →</a>
+    </div>
+  </div>
+
+  <h2>Cómo construir el hábito sin abandonar a la semana</h2>
+  <p><strong style="color:var(--moon)">Empieza por lo más pequeño posible.</strong> Si nunca has tenido rutina matutina, empieza solo con el vaso de agua y la luz natural. Dos minutos. Cuando eso sea automático, añade algo más.</p>
+  <p><strong style="color:var(--moon)">Prepara la noche anterior.</strong> Deja el vaso de agua en la mesilla. Pon la ropa de deporte lista si vas a moverte. Cuantas menos decisiones tengas que tomar por la mañana, más fácil es que la rutina ocurra.</p>
+  <p><strong style="color:var(--moon)">No te castigues por los días malos.</strong> Una rutina que fallas un día no es un fracaso, es normal. El problema no es fallar un día, es decidir que ya que has fallado hoy mejor lo dejas para el lunes. El lunes no existe. Mañana es mañana.</p>
+
+  <div class="conclusion">
+    <h2>El resumen</h2>
+    <p>Sin móvil los primeros 10 minutos, un vaso de agua, 5 minutos de luz natural y una sola intención para el día. Eso es todo lo que necesitas para empezar. El resto se añade cuando esto sea automático.</p>
+    <p style="margin-top:1rem; color:var(--soft); font-size:0.9rem">¿Te ha ayudado? Suscríbete para recibir un consejo de bienestar cada semana.</p>
+  </div>
+</div>
+<footer><p>© 2026 ModoDescanso · Algunos enlaces son de afiliado Amazon (mododescanso-21). Esto nos ayuda a mantener el contenido gratuito para ti.</p></footer>
+</body>
+</html>
