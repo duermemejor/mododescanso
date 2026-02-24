@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sobre Nosotros | Modo Descanso</title>
+<meta name="description" content="Somos un equipo apasionado por el bienestar, la belleza y el descanso. Conoce la historia detrás de ModoDescanso.">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --night: #0d1117; --deep: #161b27; --card: #1c2333; --border: #2a3448;
+    --moon: #c8b8f0; --star: #f0e6c8; --soft: #8b9cb8; --text: #dde3ee;
+    --accent: #7c6bb0; --glow: rgba(124,107,176,0.15);
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { background: var(--night); color: var(--text); font-family: 'DM Sans', sans-serif; font-weight: 300; line-height: 1.8; overflow-x: hidden; }
+  body::before {
+    content: ''; position: fixed; inset: 0;
+    background-image:
+      radial-gradient(1px 1px at 15% 20%, rgba(200,184,240,0.5) 0%, transparent 100%),
+      radial-gradient(1px 1px at 45% 10%, rgba(200,184,240,0.3) 0%, transparent 100%),
+      radial-gradient(1px 1px at 75% 30%, rgba(240,230,200,0.4) 0%, transparent 100%),
+      radial-gradient(1px 1px at 90% 60%, rgba(200,184,240,0.3) 0%, transparent 100%),
+      radial-gradient(1px 1px at 20% 75%, rgba(240,230,200,0.3) 0%, transparent 100%);
+    pointer-events: none; z-index: 0;
+  }
+  nav { position: sticky; top: 0; z-index: 100; background: rgba(13,17,23,0.85); backdrop-filter: blur(20px); border-bottom: 1px solid var(--border); padding: 1rem 2rem; display: flex; justify-content: space-between; align-items: center; }
+  .logo { font-family: 'Playfair Display', serif; font-size: 1.4rem; color: var(--moon); text-decoration: none; }
+  .logo span { color: var(--star); font-style: italic; }
+  nav ul { list-style: none; display: flex; gap: 2rem; }
+  nav a { color: var(--soft); text-decoration: none; font-size: 0.9rem; font-weight: 400; transition: color 0.3s; letter-spacing: 0.05em; text-transform: uppercase; }
+  nav a:hover { color: var(--moon); }
+
+  /* HERO */
+  .hero {
+    position: relative; z-index: 1;
+    text-align: center; padding: 6rem 2rem 4rem;
+    max-width: 800px; margin: 0 auto;
+  }
+  .hero-badge { display: inline-block; background: var(--glow); border: 1px solid var(--accent); color: var(--moon); font-size: 0.75rem; letter-spacing: 0.15em; text-transform: uppercase; padding: 0.4rem 1.2rem; border-radius: 100px; margin-bottom: 1.5rem; animation: fadeUp 0.8s ease both; }
+  .hero h1 { font-family: 'Playfair Display', serif; font-size: clamp(2.2rem, 5vw, 3.8rem); color: var(--star); line-height: 1.15; margin-bottom: 1.5rem; animation: fadeUp 0.8s 0.1s ease both; }
+  .hero h1 em { font-style: italic; color: var(--moon); }
+  .hero p { font-size: 1.1rem; color: var(--soft); max-width: 600px; margin: 0 auto; animation: fadeUp 0.8s 0.2s ease both; }
+
+  /* STORY */
+  .story { position: relative; z-index: 1; max-width: 800px; margin: 0 auto; padding: 4rem 2rem; }
+  .story p { font-size: 1.05rem; color: var(--text); margin-bottom: 1.5rem; }
+  .story p strong { color: var(--moon); font-weight: 500; }
+
+  .quote {
+    background: var(--card); border: 1px solid var(--border); border-left: 4px solid var(--accent);
+    border-radius: 12px; padding: 2rem; margin: 2.5rem 0;
+    font-family: 'Playfair Display', serif; font-size: 1.3rem; font-style: italic;
+    color: var(--moon); line-height: 1.5;
+  }
+
+  /* VALUES */
+  .values-section { position: relative; z-index: 1; background: var(--deep); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+  .values-inner { max-width: 1100px; margin: 0 auto; padding: 5rem 2rem; }
+  .section-label { font-size: 0.75rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--accent); margin-bottom: 0.75rem; }
+  .section-title { font-family: 'Playfair Display', serif; font-size: clamp(1.8rem, 4vw, 2.5rem); color: var(--star); margin-bottom: 0.75rem; line-height: 1.2; }
+  .section-sub { color: var(--soft); max-width: 500px; margin-bottom: 3rem; }
+
+  .values-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 1.5rem; }
+  .value-card { background: var(--card); border: 1px solid var(--border); border-radius: 16px; padding: 2rem; transition: border-color 0.3s, transform 0.3s; }
+  .value-card:hover { border-color: var(--accent); transform: translateY(-3px); }
+  .value-icon { font-size: 2rem; margin-bottom: 1rem; display: block; }
+  .value-card h3 { font-family: 'Playfair Display', serif; color: var(--star); font-size: 1.1rem; margin-bottom: 0.5rem; }
+  .value-card p { font-size: 0.88rem; color: var(--soft); line-height: 1.6; margin: 0; }
+
+  /* TEAM */
+  .team-section { position: relative; z-index: 1; max-width: 1100px; margin: 0 auto; padding: 5rem 2rem; }
+  .team-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 1.5rem; margin-top: 3rem; }
+  .team-card { background: var(--card); border: 1px solid var(--border); border-radius: 20px; overflow: hidden; transition: border-color 0.3s, transform 0.3s; }
+  .team-card:hover { border-color: var(--accent); transform: translateY(-4px); }
+  .team-avatar { height: 160px; display: flex; align-items: center; justify-content: center; }
+  .team-body { padding: 1.5rem; }
+  .team-body h3 { font-family: 'Playfair Display', serif; color: var(--star); font-size: 1.1rem; margin-bottom: 0.2rem; }
+  .team-role { font-size: 0.78rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent); margin-bottom: 0.75rem; display: block; }
+  .team-body p { font-size: 0.87rem; color: var(--soft); line-height: 1.6; margin: 0; }
+
+  /* MISSION */
+  .mission { position: relative; z-index: 1; background: var(--deep); border-top: 1px solid var(--border); }
+  .mission-inner { max-width: 800px; margin: 0 auto; padding: 5rem 2rem; text-align: center; }
+  .mission h2 { font-family: 'Playfair Display', serif; font-size: clamp(1.8rem, 4vw, 2.8rem); color: var(--star); margin-bottom: 1.5rem; line-height: 1.2; }
+  .mission p { color: var(--soft); font-size: 1.05rem; max-width: 600px; margin: 0 auto 2rem; }
+  .mission-cta { display: inline-block; background: linear-gradient(135deg, var(--accent), #9d8fd4); color: white; text-decoration: none; padding: 0.9rem 2.5rem; border-radius: 100px; font-weight: 500; font-size: 0.95rem; transition: opacity 0.3s, transform 0.3s; box-shadow: 0 0 30px rgba(124,107,176,0.3); }
+  .mission-cta:hover { opacity: 0.85; transform: translateY(-2px); }
+
+  footer { position: relative; z-index: 1; border-top: 1px solid var(--border); padding: 2.5rem 2rem; text-align: center; color: var(--soft); font-size: 0.85rem; }
+  .footer-logo { font-family: 'Playfair Display', serif; color: var(--moon); font-size: 1.2rem; margin-bottom: 0.5rem; }
+
+  @keyframes fadeUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+  @media (max-width: 600px) { nav ul { display: none; } }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="logo">Modo<span>Descanso</span></a>
+  <ul>
+    <li><a href="index.html">Inicio</a></li>
+    <li><a href="productos.html">Productos</a></li>
+    <li><a href="sobre-nosotros.html" style="color:var(--moon)">Nosotros</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <span class="hero-badge">✦ Nuestra historia</span>
+  <h1>Nacimos del agotamiento.<br><em>Crecimos con propósito.</em></h1>
+  <p>Somos un equipo que un día decidió que sentirse cansada, apagada y sin tiempo para una misma no podía ser lo normal. Y creamos ModoDescanso.</p>
+</div>
+
+<!-- STORY -->
+<div class="story">
+  <p>Todo empezó con una conversación entre amigas. Trabajos exigentes, familias que atender, listas de tareas interminables y la sensación constante de que el cuerpo pedía parar pero la vida no permitía hacerlo. <strong>El descanso se había convertido en un lujo.</strong> Y la piel, el pelo y el bienestar en general eran las primeras víctimas.</p>
+
+  <p>Investigamos. Probamos. Nos equivocamos muchas veces. Gastamos dinero en productos que prometían milagros y no funcionaban. Seguimos consejos de influencers que solo vendían humo. Y poco a poco fuimos construyendo algo que nadie nos había dado: <strong>una guía honesta, sin publicidad encubierta, sin milagros falsos.</strong></p>
+
+  <div class="quote">
+    "Queremos ser el equipo de amigas expertas que todas necesitamos. Las que te dicen la verdad, te recomiendan lo que funciona y te acompañan en el camino hacia sentirte mejor."
+  </div>
+
+  <p>Hoy ModoDescanso es mucho más que un blog de sueño. Es una plataforma de bienestar integral pensada para la mujer moderna: la que trabaja, cuida, crea y además quiere encontrar tiempo para cuidarse a sí misma. <strong>Hablamos de sueño, salud, belleza, rutinas y todo lo que hay en medio.</strong></p>
+
+  <p>No somos médicos ni dermatólogos. Somos un equipo que investiga, prueba y filtra por ti. Cada artículo que publicamos, cada producto que recomendamos, pasa por un criterio claro: <strong>¿lo usaríamos nosotras?</strong> Si la respuesta es no, no aparece aquí.</p>
+</div>
+
+<!-- VALUES -->
+<div class="values-section">
+  <div class="values-inner">
+    <p class="section-label">✦ Lo que nos mueve</p>
+    <h2 class="section-title">Nuestros valores</h2>
+    <p class="section-sub">Por qué hacemos lo que hacemos y cómo lo hacemos.</p>
+
+    <div class="values-grid">
+      <div class="value-card">
+        <span class="value-icon">🔍</span>
+        <h3>Honestidad ante todo</h3>
+        <p>No recomendamos algo por que pague más comisión. Lo recomendamos si creemos que funciona. Si un producto no nos convence, lo decimos.</p>
+      </div>
+      <div class="value-card">
+        <span class="value-icon">🧪</span>
+        <h3>Evidencia, no tendencias</h3>
+        <p>Antes de publicar algo, investigamos. Buscamos estudios, contrastamos fuentes y separamos lo que tiene base real de lo que es puro marketing.</p>
+      </div>
+      <div class="value-card">
+        <span class="value-icon">💜</span>
+        <h3>Para mujeres reales</h3>
+        <p>No hablamos de rutinas de 2 horas ni de presupuestos infinitos. Hablamos de lo que funciona para quien tiene una vida real y tiempo limitado.</p>
+      </div>
+      <div class="value-card">
+        <span class="value-icon">🌙</span>
+        <h3>El descanso es poder</h3>
+        <p>Dormir bien no es un lujo. Es la base de todo lo demás: energía, claridad mental, piel sana, humor estable. Sin descanso, nada funciona bien.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- TEAM -->
+<div class="team-section">
+  <p class="section-label">✦ El equipo</p>
+  <h2 class="section-title">Las personas detrás<br><em style="color:var(--moon);font-style:italic;">de ModoDescanso</em></h2>
+  <p class="section-sub">Un equipo pequeño con mucha pasión por el bienestar y la honestidad.</p>
+
+  <div class="team-grid">
+
+    <div class="team-card">
+      <div class="team-avatar" style="background:linear-gradient(135deg,#2a1f4e,#5c4a8a);display:flex;align-items:center;justify-content:center;">
+        <div style="width:80px;height:80px;border-radius:50%;background:linear-gradient(135deg,#7c6bb0,#c8b8f0);display:flex;align-items:center;justify-content:center;font-family:'Playfair Display',serif;font-size:2rem;color:white;font-weight:700;">LM</div>
+      </div>
+      <div class="team-body">
+        <h3>Laura Mendoza</h3>
+        <span class="team-role">Fundadora & CEO</span>
+        <p>Experta en bienestar y sueño con 8 años de experiencia. La mente y el alma detrás de ModoDescanso. Cree que cuidarse bien es el acto más revolucionario que puede hacer una mujer.</p>
+      </div>
+    </div>
+
+
+    <div class="team-card">
+      <div class="team-avatar" style="background:linear-gradient(135deg,#1a2a3a,#2a4a6a);display:flex;align-items:center;justify-content:center;">
+        <div style="width:80px;height:80px;border-radius:50%;background:linear-gradient(135deg,#2a4a6a,#6a9ac0);display:flex;align-items:center;justify-content:center;font-family:'Playfair Display',serif;font-size:2rem;color:white;font-weight:700;">NS</div>
+      </div>
+      <div class="team-body">
+        <h3>Nina Schreiber</h3>
+        <span class="team-role">COO — Directora de Operaciones</span>
+        <p>Vienesa con MBA en ESADE y más de 10 años gestionando equipos en empresas de salud y bienestar. La que hace que todo funcione entre bastidores y que los proyectos lleguen a buen puerto.</p>
+      </div>
+    </div>
+
+    <div class="team-card">
+      <div class="team-avatar" style="background:linear-gradient(135deg,#1a3a2a,#2d6a4f);display:flex;align-items:center;justify-content:center;">
+        <div style="width:80px;height:80px;border-radius:50%;background:linear-gradient(135deg,#2d6a4f,#7ec8a0);display:flex;align-items:center;justify-content:center;font-family:'Playfair Display',serif;font-size:2rem;color:white;font-weight:700;">SK</div>
+      </div>
+      <div class="team-body">
+        <h3>Sophie Krämer</h3>
+        <span class="team-role">Directora de Belleza & Skin Care</span>
+        <p>Formuladora cosmética alemana y experta en K-beauty. Analiza ingredientes, desmonta mitos y es nuestra referencia en todo lo relacionado con el cuidado de la piel.</p>
+      </div>
+    </div>
+
+    <div class="team-card">
+      <div class="team-avatar" style="background:linear-gradient(135deg,#3a1a2a,#7a3a5a);display:flex;align-items:center;justify-content:center;">
+        <div style="width:80px;height:80px;border-radius:50%;background:linear-gradient(135deg,#7a3a5a,#c87aa0);display:flex;align-items:center;justify-content:center;font-family:'Playfair Display',serif;font-size:2rem;color:white;font-weight:700;">VR</div>
+      </div>
+      <div class="team-body">
+        <h3>Valentina Reyes</h3>
+        <span class="team-role">Nutrición & Salud Hormonal</span>
+        <p>Dietista-nutricionista colombiana especializada en salud hormonal femenina y suplementación. La voz de la razón científica en cada recomendación que hacemos.</p>
+      </div>
+    </div>
+
+    <div class="team-card">
+      <div class="team-avatar" style="background:linear-gradient(135deg,#1a2535,#2a4060);display:flex;align-items:center;justify-content:center;">
+        <div style="width:80px;height:80px;border-radius:50%;background:linear-gradient(135deg,#2a4060,#6a90c0);display:flex;align-items:center;justify-content:center;font-family:'Playfair Display',serif;font-size:2rem;color:white;font-weight:700;">CM</div>
+      </div>
+      <div class="team-body">
+        <h3>Claudia Moretti</h3>
+        <span class="team-role">Psicología & Bienestar Mental</span>
+        <p>Psicóloga italiana especializada en estrés crónico, ansiedad y su impacto en el sueño. Aporta la perspectiva emocional que distingue a ModoDescanso de cualquier otro blog.</p>
+      </div>
+    </div>
+
+    <div class="team-card">
+      <div class="team-avatar" style="background:linear-gradient(135deg,#2a1a10,#6a4a2a);display:flex;align-items:center;justify-content:center;">
+        <div style="width:80px;height:80px;border-radius:50%;background:linear-gradient(135deg,#6a4a2a,#c09060);display:flex;align-items:center;justify-content:center;font-family:'Playfair Display',serif;font-size:2rem;color:white;font-weight:700;">IR</div>
+      </div>
+      <div class="team-body">
+        <h3>Isabelle Rousseau</h3>
+        <span class="team-role">Editora & Estrategia de Contenido</span>
+        <p>Periodista francesa con trayectoria en revistas de salud y lifestyle. Garantiza que cada artículo que publicamos tenga rigor, calidad y una voz que conecte de verdad.</p>
+      </div>
+    </div>
+
+    <div class="team-card">
+      <div class="team-avatar" style="background:linear-gradient(135deg,#1a1a2a,#3a3a6a);display:flex;align-items:center;justify-content:center;">
+        <div style="width:80px;height:80px;border-radius:50%;background:linear-gradient(135deg,#3a3a6a,#8a8ac0);display:flex;align-items:center;justify-content:center;font-family:'Playfair Display',serif;font-size:2rem;color:white;font-weight:700;">AG</div>
+      </div>
+      <div class="team-body">
+        <h3>Ana González</h3>
+        <span class="team-role">Comunidad & Redes Sociales</span>
+        <p>La cara visible de ModoDescanso en redes. Madrileña, apasionada del bienestar y experta en crear comunidad real alrededor de contenido que aporta valor.</p>
+      </div>
+    </div>
+
+    <div class="team-card">
+      <div class="team-avatar" style="background:linear-gradient(135deg,#1a3a1a,#3a6a3a);display:flex;align-items:center;justify-content:center;">
+        <div style="width:80px;height:80px;border-radius:50%;background:linear-gradient(135deg,#3a6a3a,#80c080);display:flex;align-items:center;justify-content:center;font-family:'Playfair Display',serif;font-size:2rem;color:white;font-weight:700;">FH</div>
+      </div>
+      <div class="team-body">
+        <h3>Fabian Hartmann</h3>
+        <span class="team-role">Tecnología & SEO</span>
+        <p>Ingeniero alemán especializado en estrategia digital y posicionamiento web. Asegura que ModoDescanso llegue a las mujeres que más lo necesitan en el momento justo.</p>
+      </div>
+    </div>
+
+    <div class="team-card">
+      <div class="team-avatar" style="background:linear-gradient(135deg,#2a2a1a,#5a5a2a);display:flex;align-items:center;justify-content:center;">
+        <div style="width:80px;height:80px;border-radius:50%;background:linear-gradient(135deg,#5a5a2a,#aaa060);display:flex;align-items:center;justify-content:center;font-family:'Playfair Display',serif;font-size:2rem;color:white;font-weight:700;">MW</div>
+      </div>
+      <div class="team-body">
+        <h3>Markus Wolff</h3>
+        <span class="team-role">Producto & Estrategia de Marca</span>
+        <p>Suizo-alemán con experiencia en startups de salud y bienestar. Da forma a la visión de largo plazo de ModoDescanso y lidera la expansión internacional del proyecto.</p>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- MISSION -->
+<div class="mission">
+  <div class="mission-inner">
+    <h2>Nuestra misión es simple:<br><em style="color:var(--moon);font-style:italic;">que te cuides sin complicarte</em></h2>
+    <p>Queremos que cada mujer que llegue a ModoDescanso salga con una idea clara, un hábito nuevo o un producto que de verdad va a mejorar su día a día. Sin abrumarte. Sin venderte humo. Con honestidad.</p>
+    <a href="index.html" class="mission-cta">Explorar el contenido →</a>
+  </div>
+</div>
+
+<footer>
+  <div class="footer-logo">ModoDescanso</div>
+  <p>© 2026 ModoDescanso.es — Hecho con 🌙 desde España</p>
+</footer>
+
+</body>
+</html>
