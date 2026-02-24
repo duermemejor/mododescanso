@@ -4,314 +4,61 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Productos Recomendados | Modo Descanso</title>
-<meta name="description" content="Los mejores productos para dormir mejor: colchones, suplementos, antifaces y más. Solo recomendamos lo que realmente funciona.">
+<meta name="description" content="Los mejores productos para dormir mejor, reducir el estrés y cuidarte. Solo recomendamos lo que realmente funciona.">
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
   :root {
-    --night: #0d1117;
-    --deep: #161b27;
-    --card: #1c2333;
-    --border: #2a3448;
-    --moon: #c8b8f0;
-    --star: #f0e6c8;
-    --soft: #8b9cb8;
-    --text: #dde3ee;
-    --accent: #7c6bb0;
-    --glow: rgba(124, 107, 176, 0.15);
+    --night: #0d1117; --deep: #161b27; --card: #1c2333; --border: #2a3448;
+    --moon: #c8b8f0; --star: #f0e6c8; --soft: #8b9cb8; --text: #dde3ee;
+    --accent: #7c6bb0; --glow: rgba(124,107,176,0.15);
   }
-
   * { margin: 0; padding: 0; box-sizing: border-box; }
-
-  body {
-    background: var(--night);
-    color: var(--text);
-    font-family: 'DM Sans', sans-serif;
-    font-weight: 300;
-    line-height: 1.7;
-  }
-
+  body { background: var(--night); color: var(--text); font-family: 'DM Sans', sans-serif; font-weight: 300; line-height: 1.7; }
   body::before {
-    content: '';
-    position: fixed;
-    inset: 0;
+    content: ''; position: fixed; inset: 0;
     background-image:
       radial-gradient(1px 1px at 10% 15%, rgba(200,184,240,0.4) 0%, transparent 100%),
       radial-gradient(1px 1px at 40% 10%, rgba(200,184,240,0.3) 0%, transparent 100%),
       radial-gradient(1px 1px at 70% 25%, rgba(200,184,240,0.4) 0%, transparent 100%),
-      radial-gradient(1px 1px at 85% 55%, rgba(240,230,200,0.3) 0%, transparent 100%),
-      radial-gradient(1px 1px at 25% 70%, rgba(200,184,240,0.2) 0%, transparent 100%);
-    pointer-events: none;
-    z-index: 0;
+      radial-gradient(1px 1px at 85% 55%, rgba(240,230,200,0.3) 0%, transparent 100%);
+    pointer-events: none; z-index: 0;
   }
-
-  nav {
-    position: sticky;
-    top: 0;
-    z-index: 100;
-    background: rgba(13,17,23,0.85);
-    backdrop-filter: blur(20px);
-    border-bottom: 1px solid var(--border);
-    padding: 1rem 2rem;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-
-  .logo {
-    font-family: 'Playfair Display', serif;
-    font-size: 1.4rem;
-    color: var(--moon);
-    text-decoration: none;
-  }
+  nav { position: sticky; top: 0; z-index: 100; background: rgba(13,17,23,0.85); backdrop-filter: blur(20px); border-bottom: 1px solid var(--border); padding: 1rem 2rem; display: flex; justify-content: space-between; align-items: center; }
+  .logo { font-family: 'Playfair Display', serif; font-size: 1.4rem; color: var(--moon); text-decoration: none; }
   .logo span { color: var(--star); font-style: italic; }
-
   nav ul { list-style: none; display: flex; gap: 2rem; }
-  nav a {
-    color: var(--soft);
-    text-decoration: none;
-    font-size: 0.9rem;
-    font-weight: 400;
-    transition: color 0.3s;
-    letter-spacing: 0.05em;
-    text-transform: uppercase;
-  }
+  nav a { color: var(--soft); text-decoration: none; font-size: 0.9rem; font-weight: 400; transition: color 0.3s; letter-spacing: 0.05em; text-transform: uppercase; }
   nav a:hover, nav a.active { color: var(--moon); }
-
-  /* HERO */
-  .hero {
-    position: relative;
-    z-index: 1;
-    text-align: center;
-    padding: 5rem 2rem 3rem;
-  }
-
-  .hero-badge {
-    display: inline-block;
-    background: var(--glow);
-    border: 1px solid var(--accent);
-    color: var(--moon);
-    font-size: 0.75rem;
-    letter-spacing: 0.15em;
-    text-transform: uppercase;
-    padding: 0.4rem 1.2rem;
-    border-radius: 100px;
-    margin-bottom: 1.5rem;
-  }
-
-  .hero h1 {
-    font-family: 'Playfair Display', serif;
-    font-size: clamp(2rem, 5vw, 3.5rem);
-    color: var(--star);
-    margin-bottom: 1rem;
-    line-height: 1.2;
-  }
-
+  .hero { position: relative; z-index: 1; text-align: center; padding: 5rem 2rem 3rem; }
+  .hero-badge { display: inline-block; background: var(--glow); border: 1px solid var(--accent); color: var(--moon); font-size: 0.75rem; letter-spacing: 0.15em; text-transform: uppercase; padding: 0.4rem 1.2rem; border-radius: 100px; margin-bottom: 1.5rem; }
+  .hero h1 { font-family: 'Playfair Display', serif; font-size: clamp(2rem, 5vw, 3.5rem); color: var(--star); margin-bottom: 1rem; line-height: 1.2; }
   .hero h1 em { font-style: italic; color: var(--moon); }
-
-  .hero p {
-    color: var(--soft);
-    font-size: 1rem;
-    max-width: 520px;
-    margin: 0 auto;
-  }
-
-  /* FILTER TABS */
-  .filters {
-    position: relative;
-    z-index: 1;
-    display: flex;
-    justify-content: center;
-    gap: 0.75rem;
-    flex-wrap: wrap;
-    padding: 2rem 2rem 0;
-  }
-
-  .filter-btn {
-    background: var(--card);
-    border: 1px solid var(--border);
-    color: var(--soft);
-    padding: 0.5rem 1.25rem;
-    border-radius: 100px;
-    font-family: 'DM Sans', sans-serif;
-    font-size: 0.85rem;
-    cursor: pointer;
-    transition: all 0.3s;
-  }
-
-  .filter-btn:hover, .filter-btn.active {
-    background: var(--accent);
-    border-color: var(--accent);
-    color: white;
-  }
-
-  /* PRODUCTS GRID */
-  .products-section {
-    position: relative;
-    z-index: 1;
-    max-width: 1100px;
-    margin: 0 auto;
-    padding: 3rem 2rem 5rem;
-  }
-
-  .products-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-    gap: 1.75rem;
-  }
-
-  .product-card {
-    background: var(--card);
-    border: 1px solid var(--border);
-    border-radius: 20px;
-    overflow: hidden;
-    transition: transform 0.3s, border-color 0.3s, box-shadow 0.3s;
-    display: flex;
-    flex-direction: column;
-  }
-
-  .product-card:hover {
-    transform: translateY(-5px);
-    border-color: var(--accent);
-    box-shadow: 0 15px 40px rgba(124,107,176,0.2);
-  }
-
-  .product-img-wrap {
-    background: var(--deep);
-    height: 220px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    overflow: hidden;
-    position: relative;
-  }
-
-  .product-img-wrap img {
-    width: 100%;
-    height: 100%;
-    object-fit: contain;
-    padding: 1.5rem;
-    transition: transform 0.4s;
-  }
-
-  .product-card:hover .product-img-wrap img {
-    transform: scale(1.05);
-  }
-
-  .product-category {
-    position: absolute;
-    top: 1rem;
-    left: 1rem;
-    background: var(--glow);
-    border: 1px solid var(--accent);
-    color: var(--moon);
-    font-size: 0.7rem;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    padding: 0.2rem 0.7rem;
-    border-radius: 100px;
-  }
-
-  .product-body {
-    padding: 1.5rem;
-    display: flex;
-    flex-direction: column;
-    flex: 1;
-  }
-
-  .product-body h3 {
-    font-family: 'Playfair Display', serif;
-    font-size: 1.1rem;
-    color: var(--star);
-    margin-bottom: 0.5rem;
-    line-height: 1.3;
-  }
-
-  .product-body p {
-    font-size: 0.88rem;
-    color: var(--soft);
-    line-height: 1.6;
-    flex: 1;
-    margin-bottom: 1rem;
-  }
-
-  .stars {
-    color: #f0c040;
-    font-size: 0.85rem;
-    margin-bottom: 0.5rem;
-  }
-
-  .product-footer {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    margin-top: auto;
-  }
-
-  .product-price {
-    font-family: 'Playfair Display', serif;
-    color: var(--moon);
-    font-size: 1.1rem;
-  }
-
-  .product-price span {
-    font-size: 0.75rem;
-    color: var(--soft);
-    font-family: 'DM Sans', sans-serif;
-  }
-
-  .product-btn {
-    display: inline-block;
-    background: linear-gradient(135deg, var(--accent), #9d8fd4);
-    color: white;
-    text-decoration: none;
-    padding: 0.55rem 1.25rem;
-    border-radius: 100px;
-    font-size: 0.82rem;
-    font-weight: 500;
-    transition: opacity 0.3s, transform 0.2s;
-  }
-
-  .product-btn:hover {
-    opacity: 0.85;
-    transform: scale(1.03);
-  }
-
-  /* DISCLAIMER */
-  .disclaimer {
-    position: relative;
-    z-index: 1;
-    text-align: center;
-    padding: 1rem 2rem 3rem;
-    color: var(--soft);
-    font-size: 0.78rem;
-    opacity: 0.7;
-  }
-
-  footer {
-    position: relative;
-    z-index: 1;
-    border-top: 1px solid var(--border);
-    padding: 2.5rem 2rem;
-    text-align: center;
-    color: var(--soft);
-    font-size: 0.85rem;
-  }
-
-  .footer-logo {
-    font-family: 'Playfair Display', serif;
-    color: var(--moon);
-    font-size: 1.2rem;
-    margin-bottom: 0.5rem;
-  }
-
-  @media (max-width: 600px) {
-    nav ul { display: none; }
-    .products-grid { grid-template-columns: 1fr; }
-  }
+  .hero p { color: var(--soft); font-size: 1rem; max-width: 520px; margin: 0 auto; }
+  .filters { position: relative; z-index: 1; display: flex; justify-content: center; gap: 0.75rem; flex-wrap: wrap; padding: 2rem 2rem 0; }
+  .filter-btn { background: var(--card); border: 1px solid var(--border); color: var(--soft); padding: 0.5rem 1.25rem; border-radius: 100px; font-family: 'DM Sans', sans-serif; font-size: 0.85rem; cursor: pointer; transition: all 0.3s; }
+  .filter-btn:hover, .filter-btn.active { background: var(--accent); border-color: var(--accent); color: white; }
+  .products-section { position: relative; z-index: 1; max-width: 1100px; margin: 0 auto; padding: 3rem 2rem 5rem; }
+  .products-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(290px, 1fr)); gap: 1.75rem; }
+  .product-card { background: var(--card); border: 1px solid var(--border); border-radius: 20px; overflow: hidden; transition: transform 0.3s, border-color 0.3s, box-shadow 0.3s; display: flex; flex-direction: column; }
+  .product-card:hover { transform: translateY(-5px); border-color: var(--accent); box-shadow: 0 15px 40px rgba(124,107,176,0.2); }
+  .product-img-wrap { height: 200px; display: flex; align-items: center; justify-content: center; position: relative; font-size: 5rem; }
+  .product-category { position: absolute; top: 1rem; left: 1rem; background: var(--glow); border: 1px solid var(--accent); color: var(--moon); font-size: 0.7rem; letter-spacing: 0.1em; text-transform: uppercase; padding: 0.2rem 0.7rem; border-radius: 100px; }
+  .product-body { padding: 1.5rem; display: flex; flex-direction: column; flex: 1; }
+  .product-body h3 { font-family: 'Playfair Display', serif; font-size: 1.05rem; color: var(--star); margin-bottom: 0.5rem; line-height: 1.3; }
+  .product-body p { font-size: 0.87rem; color: var(--soft); line-height: 1.6; flex: 1; margin-bottom: 1rem; }
+  .stars { color: #f0c040; font-size: 0.82rem; margin-bottom: 0.5rem; }
+  .product-footer { display: flex; align-items: center; justify-content: space-between; margin-top: auto; }
+  .product-price { font-family: 'Playfair Display', serif; color: var(--moon); font-size: 1.05rem; }
+  .product-price span { font-size: 0.75rem; color: var(--soft); font-family: 'DM Sans', sans-serif; }
+  .product-btn { display: inline-block; background: linear-gradient(135deg, var(--accent), #9d8fd4); color: white; text-decoration: none; padding: 0.55rem 1.25rem; border-radius: 100px; font-size: 0.82rem; font-weight: 500; transition: opacity 0.3s, transform 0.2s; }
+  .product-btn:hover { opacity: 0.85; transform: scale(1.03); }
+  .disclaimer { position: relative; z-index: 1; text-align: center; padding: 1rem 2rem 3rem; color: var(--soft); font-size: 0.78rem; opacity: 0.7; }
+  footer { position: relative; z-index: 1; border-top: 1px solid var(--border); padding: 2.5rem 2rem; text-align: center; color: var(--soft); font-size: 0.85rem; }
+  .footer-logo { font-family: 'Playfair Display', serif; color: var(--moon); font-size: 1.2rem; margin-bottom: 0.5rem; }
+  @media (max-width: 600px) { nav ul { display: none; } .products-grid { grid-template-columns: 1fr; } }
 </style>
 </head>
 <body>
-
 <nav>
   <a href="index.html" class="logo">Modo<span>Descanso</span></a>
   <ul>
@@ -321,36 +68,32 @@
   </ul>
 </nav>
 
-<!-- HERO -->
 <div class="hero">
   <span class="hero-badge">✦ Solo recomendamos lo que funciona</span>
-  <h1>Productos para<br><em>dormir mejor</em></h1>
+  <h1>Productos para<br><em>dormir mejor y vivir bien</em></h1>
   <p>Investigamos, probamos y comparamos para que tú solo tengas que elegir. Todos con tu mejor precio en Amazon.</p>
 </div>
 
-<!-- FILTERS -->
 <div class="filters">
-  <button class="filter-btn active" onclick="filterProducts('all', this)">Todo</button>
+  <button class="filter-btn active" onclick="filterProducts('all', this)">✨ Todo</button>
   <button class="filter-btn" onclick="filterProducts('suplementos', this)">💊 Suplementos</button>
   <button class="filter-btn" onclick="filterProducts('sueno', this)">😴 Sueño</button>
   <button class="filter-btn" onclick="filterProducts('ambiente', this)">🏠 Ambiente</button>
   <button class="filter-btn" onclick="filterProducts('ronquidos', this)">🔇 Ronquidos</button>
+  <button class="filter-btn" onclick="filterProducts('rutinas', this)">☀️ Rutinas</button>
 </div>
 
-<!-- PRODUCTS -->
 <div class="products-section">
   <div class="products-grid" id="productsGrid">
 
-    <!-- 1. Magnesio -->
     <div class="product-card" data-category="suplementos">
-      <div class="product-img-wrap">
-        <span class="product-category">💊 Suplementos</span>
-        <div style="font-size:5rem;display:flex;align-items:center;justify-content:center;width:100%;height:100%;background:linear-gradient(135deg, #2a1f4e, #4a3580);">💊</div>
+      <div class="product-img-wrap" style="background:linear-gradient(135deg,#2a1f4e,#4a3580)">
+        <span class="product-category">💊 Suplementos</span>💊
       </div>
       <div class="product-body">
-        <div class="stars">★★★★★ <span style="color:var(--soft); font-size:0.8rem">4.6 (2.847 reseñas)</span></div>
+        <div class="stars">★★★★★ <span>4.6 (2.847 reseñas)</span></div>
         <h3>Magnesio Bisglicinato 400mg</h3>
-        <p>La forma de magnesio con mejor absorción. Relaja el sistema nervioso, reduce los calambres nocturnos y mejora la calidad del sueño profundo. Tómalo 30 minutos antes de dormir.</p>
+        <p>La forma con mejor absorción. Relaja músculos y sistema nervioso, reduce calambres nocturnos y mejora el sueño profundo. Tómalo 30 min antes de dormir.</p>
         <div class="product-footer">
           <div class="product-price">~18€ <span>/mes</span></div>
           <a href="https://www.amazon.es/s?k=magnesio+bisglicinato+400mg&tag=mododescanso-21" class="product-btn" target="_blank">Ver en Amazon →</a>
@@ -358,16 +101,14 @@
       </div>
     </div>
 
-    <!-- 2. Ashwagandha -->
     <div class="product-card" data-category="suplementos">
-      <div class="product-img-wrap">
-        <span class="product-category">💊 Suplementos</span>
-        <div style="font-size:5rem;display:flex;align-items:center;justify-content:center;width:100%;height:100%;background:linear-gradient(135deg, #1a3a2a, #2d6a4f);">🌿</div>
+      <div class="product-img-wrap" style="background:linear-gradient(135deg,#1a3a2a,#2d6a4f)">
+        <span class="product-category">💊 Suplementos</span>🌿
       </div>
       <div class="product-body">
-        <div class="stars">★★★★★ <span style="color:var(--soft); font-size:0.8rem">4.5 (1.234 reseñas)</span></div>
-        <h3>Ashwagandha KSM-66 — Anti-estrés</h3>
-        <p>El extracto de ashwagandha con más estudios clínicos. Reduce el cortisol, la ansiedad y mejora el sueño en personas con estrés crónico. Resultados visibles en 2-3 semanas.</p>
+        <div class="stars">★★★★★ <span>4.5 (1.234 reseñas)</span></div>
+        <h3>Ashwagandha KSM-66</h3>
+        <p>El extracto con más estudios clínicos. Reduce el cortisol, la ansiedad y mejora el sueño en personas con estrés crónico. Resultados visibles en 2-3 semanas.</p>
         <div class="product-footer">
           <div class="product-price">~22€ <span>/mes</span></div>
           <a href="https://www.amazon.es/s?k=ashwagandha+ksm+66&tag=mododescanso-21" class="product-btn" target="_blank">Ver en Amazon →</a>
@@ -375,16 +116,14 @@
       </div>
     </div>
 
-    <!-- 3. Melatonina -->
     <div class="product-card" data-category="suplementos">
-      <div class="product-img-wrap">
-        <span class="product-category">💊 Suplementos</span>
-        <div style="font-size:5rem;display:flex;align-items:center;justify-content:center;width:100%;height:100%;background:linear-gradient(135deg, #1a1a3e, #2d2d6e);">🌙</div>
+      <div class="product-img-wrap" style="background:linear-gradient(135deg,#1a1a3e,#2d2d6e)">
+        <span class="product-category">💊 Suplementos</span>🌙
       </div>
       <div class="product-body">
-        <div class="stars">★★★★☆ <span style="color:var(--soft); font-size:0.8rem">4.3 (4.521 reseñas)</span></div>
-        <h3>Melatonina 1mg — Conciliar el sueño</h3>
-        <p>La dosis baja (1mg) es la más efectiva y la que menos dependencia genera. Ideal si te cuesta quedarte dormido o tienes el ciclo circadiano desajustado. No para uso diario prolongado.</p>
+        <div class="stars">★★★★☆ <span>4.3 (4.521 reseñas)</span></div>
+        <h3>Melatonina 1mg — Dosis correcta</h3>
+        <p>La dosis baja es la más efectiva y la que menos dependencia genera. Ideal si te cuesta conciliar el sueño o tienes el ritmo circadiano desajustado.</p>
         <div class="product-footer">
           <div class="product-price">~10€ <span>/2 meses</span></div>
           <a href="https://www.amazon.es/s?k=melatonina+1mg&tag=mododescanso-21" class="product-btn" target="_blank">Ver en Amazon →</a>
@@ -392,16 +131,14 @@
       </div>
     </div>
 
-    <!-- 4. Antifaz -->
     <div class="product-card" data-category="sueno">
-      <div class="product-img-wrap">
-        <span class="product-category">😴 Sueño</span>
-        <div style="font-size:5rem;display:flex;align-items:center;justify-content:center;width:100%;height:100%;background:linear-gradient(135deg, #2a2040, #5c4a8a);">😴</div>
+      <div class="product-img-wrap" style="background:linear-gradient(135deg,#2a2040,#5c4a8a)">
+        <span class="product-category">😴 Sueño</span>😷
       </div>
       <div class="product-body">
-        <div class="stars">★★★★★ <span style="color:var(--soft); font-size:0.8rem">4.7 (8.932 reseñas)</span></div>
-        <h3>Antifaz 3D Contorneado — Oscuridad total</h3>
-        <p>Diseño 3D que no toca los ojos. Bloqueo total de luz sin presión ni marcas. El cambio más barato con más impacto inmediato en la calidad del sueño. Incluye tapones de oído.</p>
+        <div class="stars">★★★★★ <span>4.7 (8.932 reseñas)</span></div>
+        <h3>Antifaz 3D Contorneado</h3>
+        <p>Diseño 3D que no toca los ojos. Bloqueo total de luz sin presión ni marcas. El cambio más barato con más impacto inmediato en tu calidad de sueño.</p>
         <div class="product-footer">
           <div class="product-price">~12€</div>
           <a href="https://www.amazon.es/s?k=antifaz+3d+contorneado+dormir&tag=mododescanso-21" class="product-btn" target="_blank">Ver en Amazon →</a>
@@ -409,16 +146,14 @@
       </div>
     </div>
 
-    <!-- 5. Almohada cervical -->
     <div class="product-card" data-category="sueno">
-      <div class="product-img-wrap">
-        <span class="product-category">😴 Sueño</span>
-        <div style="font-size:5rem;display:flex;align-items:center;justify-content:center;width:100%;height:100%;background:linear-gradient(135deg, #1e2d3d, #2d4a6e);">🛏️</div>
+      <div class="product-img-wrap" style="background:linear-gradient(135deg,#1e2d3d,#2d4a6e)">
+        <span class="product-category">😴 Sueño</span>🛏️
       </div>
       <div class="product-body">
-        <div class="stars">★★★★☆ <span style="color:var(--soft); font-size:0.8rem">4.4 (3.201 reseñas)</span></div>
-        <h3>Almohada Cervical de Memoria</h3>
-        <p>La posición de la cabeza durante el sueño afecta directamente la calidad del descanso y el dolor de cuello. La espuma de memoria viscoelástica adapta la almohada a tu morfología exacta.</p>
+        <div class="stars">★★★★☆ <span>4.4 (3.201 reseñas)</span></div>
+        <h3>Almohada Cervical Viscoelástica</h3>
+        <p>La posición de la cabeza afecta directamente al descanso. La espuma viscoelástica se adapta a tu morfología exacta y elimina el dolor de cuello nocturno.</p>
         <div class="product-footer">
           <div class="product-price">~35€</div>
           <a href="https://www.amazon.es/s?k=almohada+cervical+viscoelastica&tag=mododescanso-21" class="product-btn" target="_blank">Ver en Amazon →</a>
@@ -426,16 +161,29 @@
       </div>
     </div>
 
-    <!-- 6. Lámpara -->
-    <div class="product-card" data-category="ambiente">
-      <div class="product-img-wrap">
-        <span class="product-category">🏠 Ambiente</span>
-        <div style="font-size:5rem;display:flex;align-items:center;justify-content:center;width:100%;height:100%;background:linear-gradient(135deg, #3d2a10, #8a5a1a);">💡</div>
+    <div class="product-card" data-category="sueno">
+      <div class="product-img-wrap" style="background:linear-gradient(135deg,#1a2535,#2a4060)">
+        <span class="product-category">😴 Sueño</span>👓
       </div>
       <div class="product-body">
-        <div class="stars">★★★★★ <span style="color:var(--soft); font-size:0.8rem">4.6 (5.432 reseñas)</span></div>
+        <div class="stars">★★★★☆ <span>4.3 (5.102 reseñas)</span></div>
+        <h3>Gafas Anti Luz Azul</h3>
+        <p>Para las noches en que el móvil gana. Reducen el impacto de la luz azul en tu producción de melatonina. Úsalas a partir de las 20:00 si vas a usar pantallas.</p>
+        <div class="product-footer">
+          <div class="product-price">~20€</div>
+          <a href="https://www.amazon.es/s?k=gafas+anti+luz+azul+dormir&tag=mododescanso-21" class="product-btn" target="_blank">Ver en Amazon →</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="product-card" data-category="ambiente">
+      <div class="product-img-wrap" style="background:linear-gradient(135deg,#3d2a10,#8a5a1a)">
+        <span class="product-category">🏠 Ambiente</span>💡
+      </div>
+      <div class="product-body">
+        <div class="stars">★★★★★ <span>4.6 (5.432 reseñas)</span></div>
         <h3>Lámpara Luz Cálida Regulable</h3>
-        <p>La luz blanca fría activa el cerebro. La luz cálida y tenue lo prepara para dormir. Úsala 1 hora antes de acostarte en lugar de la luz del techo y notarás la diferencia desde el primer día.</p>
+        <p>La luz blanca activa el cerebro. La cálida y tenue lo prepara para dormir. Úsala 1 hora antes de acostarte y notarás la diferencia desde el primer día.</p>
         <div class="product-footer">
           <div class="product-price">~25€</div>
           <a href="https://www.amazon.es/s?k=lampara+luz+calida+regulable+dormitorio&tag=mododescanso-21" class="product-btn" target="_blank">Ver en Amazon →</a>
@@ -443,16 +191,59 @@
       </div>
     </div>
 
-    <!-- 7. Tapones ronquidos -->
-    <div class="product-card" data-category="ronquidos">
-      <div class="product-img-wrap">
-        <span class="product-category">🔇 Ronquidos</span>
-        <div style="font-size:5rem;display:flex;align-items:center;justify-content:center;width:100%;height:100%;background:linear-gradient(135deg, #1a2a3a, #2a4a6a);">🔇</div>
+    <div class="product-card" data-category="ambiente">
+      <div class="product-img-wrap" style="background:linear-gradient(135deg,#2d1a0a,#6a3a10)">
+        <span class="product-category">🏠 Ambiente</span>🌅
       </div>
       <div class="product-body">
-        <div class="stars">★★★★★ <span style="color:var(--soft); font-size:0.8rem">4.5 (12.847 reseñas)</span></div>
-        <h3>Tapones Loop Quiet — 26dB reducción</h3>
-        <p>Los tapones más cómodos del mercado. Reducen 26dB de ruido sin tapar completamente el sonido. Perfectos si tu pareja ronca o vives en una ciudad ruidosa. Reutilizables e higiénicos.</p>
+        <div class="stars">★★★★★ <span>4.7 (3.890 reseñas)</span></div>
+        <h3>Lámpara Simulación de Amanecer</h3>
+        <p>Te despierta con luz gradual en vez de sonido agresivo. Tu cuerpo sale del sueño de forma natural. Perfecta para habitaciones oscuras y mañanas difíciles.</p>
+        <div class="product-footer">
+          <div class="product-price">~45€</div>
+          <a href="https://www.amazon.es/s?k=lampara+simulacion+amanecer+despertador&tag=mododescanso-21" class="product-btn" target="_blank">Ver en Amazon →</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="product-card" data-category="ambiente">
+      <div class="product-img-wrap" style="background:linear-gradient(135deg,#1a3a3a,#2a6a6a)">
+        <span class="product-category">🏠 Ambiente</span>💨
+      </div>
+      <div class="product-body">
+        <div class="stars">★★★★☆ <span>4.3 (6.781 reseñas)</span></div>
+        <h3>Humidificador Ultrasónico Silencioso</h3>
+        <p>El aire seco irrita las vías respiratorias. Un humidificador a 40-60% mejora la respiración nocturna considerablemente. Modo noche silencioso.</p>
+        <div class="product-footer">
+          <div class="product-price">~35€</div>
+          <a href="https://www.amazon.es/s?k=humidificador+ultrasonico+silencioso+dormitorio&tag=mododescanso-21" class="product-btn" target="_blank">Ver en Amazon →</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="product-card" data-category="ambiente">
+      <div class="product-img-wrap" style="background:linear-gradient(135deg,#1a2a3a,#3a5a7a)">
+        <span class="product-category">🏠 Ambiente</span>🌡️
+      </div>
+      <div class="product-body">
+        <div class="stars">★★★★☆ <span>4.4 (2.341 reseñas)</span></div>
+        <h3>Ventilador Torre Silencioso</h3>
+        <p>Para mantener los 16-19°C ideales para dormir sin ruido. El modo noche es prácticamente inaudible. Imprescindible en verano para no sacrificar el sueño.</p>
+        <div class="product-footer">
+          <div class="product-price">~55€</div>
+          <a href="https://www.amazon.es/s?k=ventilador+torre+silencioso+dormitorio&tag=mododescanso-21" class="product-btn" target="_blank">Ver en Amazon →</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="product-card" data-category="ronquidos">
+      <div class="product-img-wrap" style="background:linear-gradient(135deg,#1a2a3a,#2a4a6a)">
+        <span class="product-category">🔇 Ronquidos</span>🔇
+      </div>
+      <div class="product-body">
+        <div class="stars">★★★★★ <span>4.5 (12.847 reseñas)</span></div>
+        <h3>Tapones Loop Quiet — 26dB</h3>
+        <p>Los tapones más cómodos del mercado. Reducen 26dB sin tapar completamente el sonido. Perfectos si tu pareja ronca o vives en ciudad ruidosa.</p>
         <div class="product-footer">
           <div class="product-price">~25€</div>
           <a href="https://www.amazon.es/s?k=loop+quiet+tapones&tag=mododescanso-21" class="product-btn" target="_blank">Ver en Amazon →</a>
@@ -460,16 +251,14 @@
       </div>
     </div>
 
-    <!-- 8. Dilatadores nasales -->
     <div class="product-card" data-category="ronquidos">
-      <div class="product-img-wrap">
-        <span class="product-category">🔇 Ronquidos</span>
-        <div style="font-size:5rem;display:flex;align-items:center;justify-content:center;width:100%;height:100%;background:linear-gradient(135deg, #2a1a3a, #5a3a7a);">👃</div>
+      <div class="product-img-wrap" style="background:linear-gradient(135deg,#2a1a3a,#5a3a7a)">
+        <span class="product-category">🔇 Ronquidos</span>👃
       </div>
       <div class="product-body">
-        <div class="stars">★★★★☆ <span style="color:var(--soft); font-size:0.8rem">4.2 (2.103 reseñas)</span></div>
+        <div class="stars">★★★★☆ <span>4.2 (2.103 reseñas)</span></div>
         <h3>Dilatadores Nasales Anti-Ronquidos</h3>
-        <p>El 80% de los ronquidos vienen de la obstrucción nasal. Los dilatadores amplían el paso de aire y reducen o eliminan los ronquidos desde la primera noche. Sin medicamentos ni aparatos.</p>
+        <p>El 80% de los ronquidos vienen de la obstrucción nasal. Amplían el paso de aire y reducen los ronquidos desde la primera noche. Sin medicamentos.</p>
         <div class="product-footer">
           <div class="product-price">~15€</div>
           <a href="https://www.amazon.es/s?k=dilatadores+nasales+ronquidos&tag=mododescanso-21" class="product-btn" target="_blank">Ver en Amazon →</a>
@@ -477,19 +266,47 @@
       </div>
     </div>
 
-    <!-- 9. Humidificador -->
-    <div class="product-card" data-category="ambiente">
-      <div class="product-img-wrap">
-        <span class="product-category">🏠 Ambiente</span>
-        <div style="font-size:5rem;display:flex;align-items:center;justify-content:center;width:100%;height:100%;background:linear-gradient(135deg, #1a3a3a, #2a6a6a);">💨</div>
+    <div class="product-card" data-category="rutinas">
+      <div class="product-img-wrap" style="background:linear-gradient(135deg,#1a2a1a,#2a5a2a)">
+        <span class="product-category">☀️ Rutinas</span>📓
       </div>
       <div class="product-body">
-        <div class="stars">★★★★☆ <span style="color:var(--soft); font-size:0.8rem">4.3 (6.781 reseñas)</span></div>
-        <h3>Humidificador Ultrasónico Silencioso</h3>
-        <p>El aire seco irrita las vías respiratorias y empeora los ronquidos y el sueño. Un humidificador a 40-60% de humedad mejora la respiración nocturna considerablemente. Modo noche silencioso.</p>
+        <div class="stars">★★★★★ <span>4.8 (7.234 reseñas)</span></div>
+        <h3>Diario de Gratitud y Planificación</h3>
+        <p>Escribir una intención por la mañana cambia cómo procesas el día. El acto de escribir a mano activa partes del cerebro que el teclado no activa. 5 minutos que marcan la diferencia.</p>
         <div class="product-footer">
-          <div class="product-price">~35€</div>
-          <a href="https://www.amazon.es/s?k=humidificador+ultrasonico+silencioso+dormitorio&tag=mododescanso-21" class="product-btn" target="_blank">Ver en Amazon →</a>
+          <div class="product-price">~15€</div>
+          <a href="https://www.amazon.es/s?k=diario+gratitud+planificacion+manana&tag=mododescanso-21" class="product-btn" target="_blank">Ver en Amazon →</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="product-card" data-category="rutinas">
+      <div class="product-img-wrap" style="background:linear-gradient(135deg,#2a1a10,#6a3a20)">
+        <span class="product-category">☀️ Rutinas</span>☕
+      </div>
+      <div class="product-body">
+        <div class="stars">★★★★☆ <span>4.4 (4.512 reseñas)</span></div>
+        <h3>Cafetera Programable</h3>
+        <p>Programa el café la noche anterior y que esté listo cuando te levantes. La recompensa inmediata que hace que levantarse sea mucho menos difícil cada mañana.</p>
+        <div class="product-footer">
+          <div class="product-price">~40€</div>
+          <a href="https://www.amazon.es/s?k=cafetera+goteo+programable&tag=mododescanso-21" class="product-btn" target="_blank">Ver en Amazon →</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="product-card" data-category="rutinas">
+      <div class="product-img-wrap" style="background:linear-gradient(135deg,#1a1a2a,#3a3a6a)">
+        <span class="product-category">☀️ Rutinas</span>🧘
+      </div>
+      <div class="product-body">
+        <div class="stars">★★★★★ <span>4.6 (9.103 reseñas)</span></div>
+        <h3>Esterilla de Yoga Antideslizante</h3>
+        <p>10 minutos de stretching por la mañana activan la circulación y liberan endorfinas. Tu cuerpo lleva horas inmóvil, necesita moverse antes de la silla del trabajo.</p>
+        <div class="product-footer">
+          <div class="product-price">~25€</div>
+          <a href="https://www.amazon.es/s?k=esterilla+yoga+antideslizante&tag=mododescanso-21" class="product-btn" target="_blank">Ver en Amazon →</a>
         </div>
       </div>
     </div>
@@ -509,14 +326,9 @@
     document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
     btn.classList.add('active');
     document.querySelectorAll('.product-card').forEach(card => {
-      if (category === 'all' || card.dataset.category === category) {
-        card.style.display = 'flex';
-      } else {
-        card.style.display = 'none';
-      }
+      card.style.display = (category === 'all' || card.dataset.category === category) ? 'flex' : 'none';
     });
   }
 </script>
-
 </body>
 </html>
